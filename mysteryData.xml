@@ -1,0 +1,66 @@
+<?xml version="1.0" standalone="yes"?>
+<RECORDS>
+<RECORD>
+<id>1</id>
+<difficult>1 </difficult>
+<mystery_level>1 </mystery_level>
+<soldier_type>剑步        </soldier_type>
+<count>0</count>
+</RECORD>
+<RECORD>
+<id>2</id>
+<difficult>1 </difficult>
+<mystery_level>1 </mystery_level>
+<soldier_type>矛步        </soldier_type>
+<count>0</count>
+</RECORD>
+<RECORD>
+<id>3</id>
+<difficult>1 </difficult>
+<mystery_level>1 </mystery_level>
+<soldier_type>斧步        </soldier_type>
+<count>21</count>
+</RECORD>
+<RECORD>
+<id>4</id>
+<difficult>1 </difficult>
+<mystery_level>2 </mystery_level>
+<soldier_type>剑步        </soldier_type>
+<count>120</count>
+</RECORD>
+<RECORD>
+<id>5</id>
+<difficult>1 </difficult>
+<mystery_level>2 </mystery_level>
+<soldier_type>矛步        </soldier_type>
+<count>0</count>
+</RECORD>
+<RECORD>
+<id>6</id>
+<difficult>1 </difficult>
+<mystery_level>2 </mystery_level>
+<soldier_type>斧步        </soldier_type>
+<count>42</count>
+</RECORD>
+<RECORD>
+<id>7</id>
+<difficult>1 </difficult>
+<mystery_level>3 </mystery_level>
+<soldier_type>剑步        </soldier_type>
+<count>250</count>
+</RECORD>
+<RECORD>
+<id>8</id>
+<difficult>1 </difficult>
+<mystery_level>3 </mystery_level>
+<soldier_type>矛步        </soldier_type>
+<count>147</count>
+</RECORD>
+<RECORD>
+<id>9</id>
+<difficult>1 </difficult>
+<mystery_level>3 </mystery_level>
+<soldier_type>斧步        </soldier_type>
+<count>89</count>
+</RECORD>
+</RECORDS>
