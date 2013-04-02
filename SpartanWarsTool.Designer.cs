@@ -147,10 +147,10 @@
             this.tabPage_calculate.Controls.Add(this.panel1);
             this.tabPage_calculate.Controls.Add(this.pnlTroops);
             this.tabPage_calculate.Controls.Add(this.pnlSelfInfo);
-            this.tabPage_calculate.Location = new System.Drawing.Point(4, 21);
+            this.tabPage_calculate.Location = new System.Drawing.Point(4, 22);
             this.tabPage_calculate.Name = "tabPage_calculate";
             this.tabPage_calculate.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_calculate.Size = new System.Drawing.Size(998, 355);
+            this.tabPage_calculate.Size = new System.Drawing.Size(998, 354);
             this.tabPage_calculate.TabIndex = 0;
             this.tabPage_calculate.Text = "迷雾计算器";
             this.tabPage_calculate.UseVisualStyleBackColor = true;
@@ -207,7 +207,7 @@
             this.panel1.Location = new System.Drawing.Point(258, 6);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(734, 252);
-            this.panel1.TabIndex = 8;
+            this.panel1.TabIndex = 1;
             // 
             // btnSubmit
             // 
@@ -228,6 +228,7 @@
             this.txtBoxDPower7.ReadOnly = true;
             this.txtBoxDPower7.Size = new System.Drawing.Size(120, 21);
             this.txtBoxDPower7.TabIndex = 25;
+            this.txtBoxDPower7.TabStop = false;
             this.txtBoxDPower7.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtBoxNPower7
@@ -237,6 +238,7 @@
             this.txtBoxNPower7.ReadOnly = true;
             this.txtBoxNPower7.Size = new System.Drawing.Size(120, 21);
             this.txtBoxNPower7.TabIndex = 18;
+            this.txtBoxNPower7.TabStop = false;
             this.txtBoxNPower7.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtBoxDPower6
@@ -246,6 +248,7 @@
             this.txtBoxDPower6.ReadOnly = true;
             this.txtBoxDPower6.Size = new System.Drawing.Size(120, 21);
             this.txtBoxDPower6.TabIndex = 24;
+            this.txtBoxDPower6.TabStop = false;
             this.txtBoxDPower6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtBoxNPower6
@@ -255,6 +258,7 @@
             this.txtBoxNPower6.ReadOnly = true;
             this.txtBoxNPower6.Size = new System.Drawing.Size(120, 21);
             this.txtBoxNPower6.TabIndex = 17;
+            this.txtBoxNPower6.TabStop = false;
             this.txtBoxNPower6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtBoxDPower5
@@ -264,6 +268,7 @@
             this.txtBoxDPower5.ReadOnly = true;
             this.txtBoxDPower5.Size = new System.Drawing.Size(120, 21);
             this.txtBoxDPower5.TabIndex = 23;
+            this.txtBoxDPower5.TabStop = false;
             this.txtBoxDPower5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtBoxNPower5
@@ -273,6 +278,7 @@
             this.txtBoxNPower5.ReadOnly = true;
             this.txtBoxNPower5.Size = new System.Drawing.Size(120, 21);
             this.txtBoxNPower5.TabIndex = 16;
+            this.txtBoxNPower5.TabStop = false;
             this.txtBoxNPower5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtBoxDPower4
@@ -282,6 +288,7 @@
             this.txtBoxDPower4.ReadOnly = true;
             this.txtBoxDPower4.Size = new System.Drawing.Size(120, 21);
             this.txtBoxDPower4.TabIndex = 22;
+            this.txtBoxDPower4.TabStop = false;
             this.txtBoxDPower4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtBoxNPower4
@@ -291,6 +298,7 @@
             this.txtBoxNPower4.ReadOnly = true;
             this.txtBoxNPower4.Size = new System.Drawing.Size(120, 21);
             this.txtBoxNPower4.TabIndex = 15;
+            this.txtBoxNPower4.TabStop = false;
             this.txtBoxNPower4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtBoxDPower3
@@ -300,6 +308,7 @@
             this.txtBoxDPower3.ReadOnly = true;
             this.txtBoxDPower3.Size = new System.Drawing.Size(120, 21);
             this.txtBoxDPower3.TabIndex = 21;
+            this.txtBoxDPower3.TabStop = false;
             this.txtBoxDPower3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtBoxNPower3
@@ -309,6 +318,7 @@
             this.txtBoxNPower3.ReadOnly = true;
             this.txtBoxNPower3.Size = new System.Drawing.Size(120, 21);
             this.txtBoxNPower3.TabIndex = 14;
+            this.txtBoxNPower3.TabStop = false;
             this.txtBoxNPower3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtBoxDPower2
@@ -318,6 +328,7 @@
             this.txtBoxDPower2.ReadOnly = true;
             this.txtBoxDPower2.Size = new System.Drawing.Size(120, 21);
             this.txtBoxDPower2.TabIndex = 20;
+            this.txtBoxDPower2.TabStop = false;
             this.txtBoxDPower2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtBoxNPower2
@@ -327,6 +338,7 @@
             this.txtBoxNPower2.ReadOnly = true;
             this.txtBoxNPower2.Size = new System.Drawing.Size(120, 21);
             this.txtBoxNPower2.TabIndex = 13;
+            this.txtBoxNPower2.TabStop = false;
             this.txtBoxNPower2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtBoxDPower1
@@ -336,6 +348,7 @@
             this.txtBoxDPower1.ReadOnly = true;
             this.txtBoxDPower1.Size = new System.Drawing.Size(120, 21);
             this.txtBoxDPower1.TabIndex = 19;
+            this.txtBoxDPower1.TabStop = false;
             this.txtBoxDPower1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtBoxNPower1
@@ -345,6 +358,7 @@
             this.txtBoxNPower1.ReadOnly = true;
             this.txtBoxNPower1.Size = new System.Drawing.Size(120, 21);
             this.txtBoxNPower1.TabIndex = 12;
+            this.txtBoxNPower1.TabStop = false;
             this.txtBoxNPower1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // listBoxSort
@@ -362,7 +376,7 @@
             this.txtBoxPower7.Location = new System.Drawing.Point(212, 217);
             this.txtBoxPower7.Name = "txtBoxPower7";
             this.txtBoxPower7.Size = new System.Drawing.Size(120, 21);
-            this.txtBoxPower7.TabIndex = 11;
+            this.txtBoxPower7.TabIndex = 17;
             this.txtBoxPower7.Text = "0";
             this.txtBoxPower7.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtBoxPower7.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBox_KeyDown);
@@ -381,7 +395,7 @@
             this.txtBoxPower6.Location = new System.Drawing.Point(212, 190);
             this.txtBoxPower6.Name = "txtBoxPower6";
             this.txtBoxPower6.Size = new System.Drawing.Size(120, 21);
-            this.txtBoxPower6.TabIndex = 10;
+            this.txtBoxPower6.TabIndex = 16;
             this.txtBoxPower6.Text = "0";
             this.txtBoxPower6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtBoxPower6.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBox_KeyDown);
@@ -400,7 +414,7 @@
             this.txtBoxPower5.Location = new System.Drawing.Point(212, 163);
             this.txtBoxPower5.Name = "txtBoxPower5";
             this.txtBoxPower5.Size = new System.Drawing.Size(120, 21);
-            this.txtBoxPower5.TabIndex = 9;
+            this.txtBoxPower5.TabIndex = 15;
             this.txtBoxPower5.Text = "0";
             this.txtBoxPower5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtBoxPower5.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBox_KeyDown);
@@ -419,7 +433,7 @@
             this.txtBoxPower4.Location = new System.Drawing.Point(212, 136);
             this.txtBoxPower4.Name = "txtBoxPower4";
             this.txtBoxPower4.Size = new System.Drawing.Size(120, 21);
-            this.txtBoxPower4.TabIndex = 8;
+            this.txtBoxPower4.TabIndex = 14;
             this.txtBoxPower4.Text = "0";
             this.txtBoxPower4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtBoxPower4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBox_KeyDown);
@@ -438,7 +452,7 @@
             this.txtBoxPower3.Location = new System.Drawing.Point(212, 109);
             this.txtBoxPower3.Name = "txtBoxPower3";
             this.txtBoxPower3.Size = new System.Drawing.Size(120, 21);
-            this.txtBoxPower3.TabIndex = 7;
+            this.txtBoxPower3.TabIndex = 13;
             this.txtBoxPower3.Text = "0";
             this.txtBoxPower3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtBoxPower3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBox_KeyDown);
@@ -457,7 +471,7 @@
             this.txtBoxPower2.Location = new System.Drawing.Point(212, 82);
             this.txtBoxPower2.Name = "txtBoxPower2";
             this.txtBoxPower2.Size = new System.Drawing.Size(120, 21);
-            this.txtBoxPower2.TabIndex = 6;
+            this.txtBoxPower2.TabIndex = 12;
             this.txtBoxPower2.Text = "0";
             this.txtBoxPower2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtBoxPower2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBox_KeyDown);
@@ -476,7 +490,7 @@
             this.txtBoxPower1.Location = new System.Drawing.Point(212, 55);
             this.txtBoxPower1.Name = "txtBoxPower1";
             this.txtBoxPower1.Size = new System.Drawing.Size(120, 21);
-            this.txtBoxPower1.TabIndex = 5;
+            this.txtBoxPower1.TabIndex = 11;
             this.txtBoxPower1.Text = "0";
             this.txtBoxPower1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtBoxPower1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBox_KeyDown);
@@ -542,6 +556,7 @@
             this.cbBoxSoldier3.Name = "cbBoxSoldier3";
             this.cbBoxSoldier3.Size = new System.Drawing.Size(121, 20);
             this.cbBoxSoldier3.TabIndex = 4;
+            this.cbBoxSoldier3.TabStop = false;
             this.cbBoxSoldier3.SelectedIndexChanged += new System.EventHandler(this.cbBoxSoldier_SelectedIndexChanged);
             // 
             // lblSoldier3
@@ -560,6 +575,7 @@
             this.cbBoxSoldier2.Name = "cbBoxSoldier2";
             this.cbBoxSoldier2.Size = new System.Drawing.Size(121, 20);
             this.cbBoxSoldier2.TabIndex = 3;
+            this.cbBoxSoldier2.TabStop = false;
             this.cbBoxSoldier2.SelectedIndexChanged += new System.EventHandler(this.cbBoxSoldier_SelectedIndexChanged);
             // 
             // lblSoldier2
@@ -578,6 +594,7 @@
             this.cbBoxSoldier1.Name = "cbBoxSoldier1";
             this.cbBoxSoldier1.Size = new System.Drawing.Size(121, 20);
             this.cbBoxSoldier1.TabIndex = 2;
+            this.cbBoxSoldier1.TabStop = false;
             this.cbBoxSoldier1.SelectedIndexChanged += new System.EventHandler(this.cbBoxSoldier_SelectedIndexChanged);
             // 
             // lblSoldier1
@@ -607,6 +624,7 @@
             this.cbBoxLayer.Name = "cbBoxLayer";
             this.cbBoxLayer.Size = new System.Drawing.Size(121, 20);
             this.cbBoxLayer.TabIndex = 1;
+            this.cbBoxLayer.TabStop = false;
             this.cbBoxLayer.SelectedIndexChanged += new System.EventHandler(this.cbBoxLayer_SelectedIndexChanged);
             // 
             // lblLayer
@@ -629,6 +647,7 @@
             this.cbBoxDif.Name = "cbBoxDif";
             this.cbBoxDif.Size = new System.Drawing.Size(121, 20);
             this.cbBoxDif.TabIndex = 0;
+            this.cbBoxDif.TabStop = false;
             this.cbBoxDif.SelectedIndexChanged += new System.EventHandler(this.cbBoxDif_SelectedIndexChanged);
             // 
             // lblDifficulty
@@ -666,7 +685,7 @@
             this.pnlTroops.Location = new System.Drawing.Point(10, 264);
             this.pnlTroops.Name = "pnlTroops";
             this.pnlTroops.Size = new System.Drawing.Size(982, 84);
-            this.pnlTroops.TabIndex = 7;
+            this.pnlTroops.TabIndex = 2;
             // 
             // txtBoxDLose
             // 
@@ -675,6 +694,7 @@
             this.txtBoxDLose.ReadOnly = true;
             this.txtBoxDLose.Size = new System.Drawing.Size(120, 21);
             this.txtBoxDLose.TabIndex = 3;
+            this.txtBoxDLose.TabStop = false;
             this.txtBoxDLose.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label20
@@ -729,6 +749,7 @@
             this.cbBoxSelfSoldier.Name = "cbBoxSelfSoldier";
             this.cbBoxSelfSoldier.Size = new System.Drawing.Size(121, 20);
             this.cbBoxSelfSoldier.TabIndex = 0;
+            this.cbBoxSelfSoldier.TabStop = false;
             this.cbBoxSelfSoldier.Text = "选择兵种";
             // 
             // txtBoxNLose
@@ -738,6 +759,7 @@
             this.txtBoxNLose.ReadOnly = true;
             this.txtBoxNLose.Size = new System.Drawing.Size(120, 21);
             this.txtBoxNLose.TabIndex = 2;
+            this.txtBoxNLose.TabStop = false;
             this.txtBoxNLose.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtBoxSelfPower
@@ -745,7 +767,7 @@
             this.txtBoxSelfPower.Location = new System.Drawing.Point(353, 43);
             this.txtBoxSelfPower.Name = "txtBoxSelfPower";
             this.txtBoxSelfPower.Size = new System.Drawing.Size(210, 21);
-            this.txtBoxSelfPower.TabIndex = 1;
+            this.txtBoxSelfPower.TabIndex = 18;
             this.txtBoxSelfPower.Text = "0";
             this.txtBoxSelfPower.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtBoxSelfPower.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBox_KeyDown);
@@ -1050,50 +1072,50 @@
             // 
             // tabPage_fight
             // 
-            this.tabPage_fight.Location = new System.Drawing.Point(4, 21);
+            this.tabPage_fight.Location = new System.Drawing.Point(4, 22);
             this.tabPage_fight.Name = "tabPage_fight";
             this.tabPage_fight.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_fight.Size = new System.Drawing.Size(998, 355);
+            this.tabPage_fight.Size = new System.Drawing.Size(998, 354);
             this.tabPage_fight.TabIndex = 1;
             this.tabPage_fight.Text = "纵队排序及作战方案";
             this.tabPage_fight.UseVisualStyleBackColor = true;
             // 
             // tabPage_Info
             // 
-            this.tabPage_Info.Location = new System.Drawing.Point(4, 21);
+            this.tabPage_Info.Location = new System.Drawing.Point(4, 22);
             this.tabPage_Info.Name = "tabPage_Info";
             this.tabPage_Info.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_Info.Size = new System.Drawing.Size(998, 355);
+            this.tabPage_Info.Size = new System.Drawing.Size(998, 354);
             this.tabPage_Info.TabIndex = 2;
             this.tabPage_Info.Text = "信息管理与一览";
             this.tabPage_Info.UseVisualStyleBackColor = true;
             // 
             // tabPage_daily
             // 
-            this.tabPage_daily.Location = new System.Drawing.Point(4, 21);
+            this.tabPage_daily.Location = new System.Drawing.Point(4, 22);
             this.tabPage_daily.Name = "tabPage_daily";
             this.tabPage_daily.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_daily.Size = new System.Drawing.Size(998, 355);
+            this.tabPage_daily.Size = new System.Drawing.Size(998, 354);
             this.tabPage_daily.TabIndex = 3;
             this.tabPage_daily.Text = "掠羊日常";
             this.tabPage_daily.UseVisualStyleBackColor = true;
             // 
             // tabPage_remind
             // 
-            this.tabPage_remind.Location = new System.Drawing.Point(4, 21);
+            this.tabPage_remind.Location = new System.Drawing.Point(4, 22);
             this.tabPage_remind.Name = "tabPage_remind";
             this.tabPage_remind.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_remind.Size = new System.Drawing.Size(998, 355);
+            this.tabPage_remind.Size = new System.Drawing.Size(998, 354);
             this.tabPage_remind.TabIndex = 4;
             this.tabPage_remind.Text = "市场1:1提醒";
             this.tabPage_remind.UseVisualStyleBackColor = true;
             // 
             // tabPage_gods
             // 
-            this.tabPage_gods.Location = new System.Drawing.Point(4, 21);
+            this.tabPage_gods.Location = new System.Drawing.Point(4, 22);
             this.tabPage_gods.Name = "tabPage_gods";
             this.tabPage_gods.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_gods.Size = new System.Drawing.Size(998, 355);
+            this.tabPage_gods.Size = new System.Drawing.Size(998, 354);
             this.tabPage_gods.TabIndex = 5;
             this.tabPage_gods.Text = "神卡收集";
             this.tabPage_gods.UseVisualStyleBackColor = true;

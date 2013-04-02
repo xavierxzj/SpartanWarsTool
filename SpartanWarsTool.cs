@@ -49,6 +49,93 @@ namespace SpartanWarsTool
             cbBoxSoldier1.Enabled = false;
             cbBoxSoldier2.Enabled = false;
             cbBoxSoldier3.Enabled = false;
+
+            txtBox_sword.GotFocus += new EventHandler(txtBox_GotFocus);
+            txtBox_spear.GotFocus += new EventHandler(txtBox_GotFocus);
+            txtBox_ax.GotFocus += new EventHandler(txtBox_GotFocus);
+            txtBox_bow.GotFocus += new EventHandler(txtBox_GotFocus);
+            txtBox_infantry.GotFocus += new EventHandler(txtBox_GotFocus);
+            txtBox_ride.GotFocus += new EventHandler(txtBox_GotFocus);
+            txtBox_godadd_infantry.GotFocus += new EventHandler(txtBox_GotFocus);
+            txtBox_godadd_bow.GotFocus += new EventHandler(txtBox_GotFocus);
+            txtBox_godadd_ride.GotFocus += new EventHandler(txtBox_GotFocus);
+            txtBox_morale.GotFocus += new EventHandler(txtBox_GotFocus);
+            txtBox_satisfy.GotFocus += new EventHandler(txtBox_GotFocus);
+            txtBoxPower1.GotFocus += new EventHandler(txtBox_GotFocus);
+            txtBoxPower2.GotFocus += new EventHandler(txtBox_GotFocus);
+            txtBoxPower3.GotFocus += new EventHandler(txtBox_GotFocus);
+            txtBoxPower4.GotFocus += new EventHandler(txtBox_GotFocus);
+            txtBoxPower5.GotFocus += new EventHandler(txtBox_GotFocus);
+            txtBoxPower6.GotFocus += new EventHandler(txtBox_GotFocus);
+            txtBoxPower7.GotFocus += new EventHandler(txtBox_GotFocus);
+            txtBoxSelfPower.GotFocus += new EventHandler(txtBox_GotFocus);
+
+            txtBox_sword.Tag = false;
+            txtBox_spear.Tag = false;
+            txtBox_ax.Tag = false;
+            txtBox_bow.Tag = false;
+            txtBox_infantry.Tag = false;
+            txtBox_ride.Tag = false;
+            txtBox_godadd_infantry.Tag = false;
+            txtBox_godadd_bow.Tag = false;
+            txtBox_godadd_ride.Tag = false;
+            txtBox_morale.Tag = false;
+            txtBoxPower1.Tag = false;
+            txtBoxPower2.Tag = false;
+            txtBoxPower3.Tag = false;
+            txtBoxPower4.Tag = false;
+            txtBoxPower5.Tag = false;
+            txtBoxPower6.Tag = false;
+            txtBoxPower7.Tag = false;
+            txtBoxSelfPower.Tag = false;
+
+            txtBox_sword.MouseUp += new MouseEventHandler(txtBox_MouseUp);
+            txtBox_spear.MouseUp += new MouseEventHandler(txtBox_MouseUp);
+            txtBox_ax.MouseUp += new MouseEventHandler(txtBox_MouseUp);
+            txtBox_bow.MouseUp += new MouseEventHandler(txtBox_MouseUp);
+            txtBox_infantry.MouseUp += new MouseEventHandler(txtBox_MouseUp);
+            txtBox_ride.MouseUp += new MouseEventHandler(txtBox_MouseUp);
+            txtBox_godadd_infantry.MouseUp += new MouseEventHandler(txtBox_MouseUp);
+            txtBox_godadd_bow.MouseUp += new MouseEventHandler(txtBox_MouseUp);
+            txtBox_godadd_ride.MouseUp += new MouseEventHandler(txtBox_MouseUp);
+            txtBox_morale.MouseUp += new MouseEventHandler(txtBox_MouseUp);
+            txtBox_satisfy.MouseUp += new MouseEventHandler(txtBox_MouseUp);
+            txtBoxPower1.MouseUp += new MouseEventHandler(txtBox_MouseUp);
+            txtBoxPower2.MouseUp += new MouseEventHandler(txtBox_MouseUp);
+            txtBoxPower3.MouseUp += new MouseEventHandler(txtBox_MouseUp);
+            txtBoxPower4.MouseUp += new MouseEventHandler(txtBox_MouseUp);
+            txtBoxPower5.MouseUp += new MouseEventHandler(txtBox_MouseUp);
+            txtBoxPower6.MouseUp += new MouseEventHandler(txtBox_MouseUp);
+            txtBoxPower7.MouseUp += new MouseEventHandler(txtBox_MouseUp);
+            txtBoxSelfPower.MouseUp += new MouseEventHandler(txtBox_MouseUp);
+
+        }
+
+        /// <summary>
+        /// 文本框获取焦点时全选其中的内容
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtBox_GotFocus(object sender, EventArgs e)
+        {
+            TextBox txtBox = (TextBox)sender;
+            txtBox.Tag = true;
+            txtBox.SelectAll();
+        }
+
+        /// <summary>
+        /// 鼠标抬起事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtBox_MouseUp(object sender, MouseEventArgs e)
+        {
+            TextBox txtBox = (TextBox)sender;
+            if (e.Button == MouseButtons.Left && (bool)txtBox.Tag == true)
+            {
+                txtBox.SelectAll();
+            }
+            txtBox.Tag = false;
         }
 
         /// <summary>
