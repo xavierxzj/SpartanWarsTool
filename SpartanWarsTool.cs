@@ -45,7 +45,7 @@ namespace SpartanWarsTool
             txtBoxPower5.Text = "0";
             txtBoxPower6.Text = "0";
             txtBoxPower7.Text = "0";
-            initCalPower();
+            InitCalPower();
             cbBoxSoldier1.Enabled = false;
             cbBoxSoldier2.Enabled = false;
             cbBoxSoldier3.Enabled = false;
@@ -141,7 +141,7 @@ namespace SpartanWarsTool
         /// <summary>
         /// 初始化无损值
         /// </summary>
-        private void initCalPower()
+        private void InitCalPower()
         {
             txtBoxNPower1.Text = "";
             txtBoxNPower2.Text = "";
@@ -230,6 +230,7 @@ namespace SpartanWarsTool
                     default: break;
                 }
             }
+            SortSoldier();
         }
 
         /// <summary>
@@ -237,7 +238,7 @@ namespace SpartanWarsTool
         /// </summary>
         private void calculatePower()
         {
-            initCalPower();
+            InitCalPower();
             //满意度和士气值在4500-9000之间分为3个档次，4500-5000为一档，5001-6000为一档，6001-8000为一档，8001-9000为一档，加成分别为0.00,0.01,0.03,0.05
             double satisfiction;
             double morale;
@@ -772,7 +773,7 @@ namespace SpartanWarsTool
         /// </summary>
         private void calculatePower_pre()
         {
-            initCalPower();
+            InitCalPower();
             //满意度和士气值在4500-9000之间分为3个档次，4500-5000为一档，5001-6000为一档，6001-8000为一档，8001-9000为一档，加成分别为0.00,0.01,0.03,0.05
             double satisfiction;
             double morale;
@@ -1271,84 +1272,85 @@ namespace SpartanWarsTool
         /// <returns></returns>
         private bool TxtBoxCheck()
         {
-            bool HasErrorDigital = false;
+            bool hasErrorDigital = false;
+
             if (!IsOnlyDigital(txtBox_sword.Text))
             {
-                HasErrorDigital = true;
+                hasErrorDigital = true;
             }
             if (!IsOnlyDigital(txtBox_spear.Text))
             {
-                HasErrorDigital = true;
+                hasErrorDigital = true;
             }
             if (!IsOnlyDigital(txtBox_ax.Text))
             {
-                HasErrorDigital = true;
+                hasErrorDigital = true;
             }
             if (!IsOnlyDigital(txtBox_infantry.Text))
             {
-                HasErrorDigital = true;
+                hasErrorDigital = true;
             }
             if (!IsOnlyDigital(txtBox_bow.Text))
             {
-                HasErrorDigital = true;
+                hasErrorDigital = true;
             }
             if (!IsOnlyDigital(txtBox_ride.Text))
             {
-                HasErrorDigital = true;
+                hasErrorDigital = true;
             }
             if (!IsOnlyDigital(txtBox_godadd_infantry.Text))
             {
-                HasErrorDigital = true;
+                hasErrorDigital = true;
             }
             if (!IsOnlyDigital(txtBox_godadd_bow.Text))
             {
-                HasErrorDigital = true;
+                hasErrorDigital = true;
             }
             if (!IsOnlyDigital(txtBox_godadd_ride.Text))
             {
-                HasErrorDigital = true;
+                hasErrorDigital = true;
             }
             if (!IsOnlyDigital(txtBox_satisfy.Text))
             {
-                HasErrorDigital = true;
+                hasErrorDigital = true;
             }
             if (!IsOnlyDigital(txtBox_morale.Text))
             {
-                HasErrorDigital = true;
+                hasErrorDigital = true;
             }
             if (!IsOnlyDigital(txtBoxPower1.Text))
             {
-                HasErrorDigital = true;
+                hasErrorDigital = true;
             }
             if (!IsOnlyDigital(txtBoxPower2.Text))
             {
-                HasErrorDigital = true;
+                hasErrorDigital = true;
             }
             if (!IsOnlyDigital(txtBoxPower3.Text))
             {
-                HasErrorDigital = true;
+                hasErrorDigital = true;
             }
             if (!IsOnlyDigital(txtBoxPower4.Text))
             {
-                HasErrorDigital = true;
+                hasErrorDigital = true;
             }
             if (!IsOnlyDigital(txtBoxPower5.Text))
             {
-                HasErrorDigital = true;
+                hasErrorDigital = true;
             }
             if (!IsOnlyDigital(txtBoxPower6.Text))
             {
-                HasErrorDigital = true;
+                hasErrorDigital = true;
             }
             if (!IsOnlyDigital(txtBoxPower7.Text))
             {
-                HasErrorDigital = true;
+                hasErrorDigital = true;
             }
             if (!IsOnlyDigital(txtBoxSelfPower.Text))
             {
-                HasErrorDigital = true;
+                hasErrorDigital = true;
             }
-            return HasErrorDigital;
+            return hasErrorDigital;
         }
 
         /// <summary>
