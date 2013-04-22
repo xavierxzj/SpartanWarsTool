@@ -61,10 +61,10 @@
             this.txtBoxPower2 = new System.Windows.Forms.TextBox();
             this.lblPower2 = new System.Windows.Forms.Label();
             this.txtBoxPower1 = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
+            this.lblDCount = new System.Windows.Forms.Label();
             this.lblSelect = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
+            this.lblMistery = new System.Windows.Forms.Label();
+            this.lblNCount = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.lblPower1 = new System.Windows.Forms.Label();
             this.cbBoxSoldier3 = new System.Windows.Forms.ComboBox();
@@ -187,10 +187,10 @@
             this.panel1.Controls.Add(this.txtBoxPower2);
             this.panel1.Controls.Add(this.lblPower2);
             this.panel1.Controls.Add(this.txtBoxPower1);
-            this.panel1.Controls.Add(this.label19);
+            this.panel1.Controls.Add(this.lblDCount);
             this.panel1.Controls.Add(this.lblSelect);
-            this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.label18);
+            this.panel1.Controls.Add(this.lblMistery);
+            this.panel1.Controls.Add(this.lblNCount);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.lblPower1);
             this.panel1.Controls.Add(this.cbBoxSoldier3);
@@ -375,6 +375,7 @@
             // 
             this.txtBoxPower7.Location = new System.Drawing.Point(212, 217);
             this.txtBoxPower7.Name = "txtBoxPower7";
+            this.txtBoxPower7.ReadOnly = true;
             this.txtBoxPower7.Size = new System.Drawing.Size(120, 21);
             this.txtBoxPower7.TabIndex = 17;
             this.txtBoxPower7.Text = "0";
@@ -394,6 +395,7 @@
             // 
             this.txtBoxPower6.Location = new System.Drawing.Point(212, 190);
             this.txtBoxPower6.Name = "txtBoxPower6";
+            this.txtBoxPower6.ReadOnly = true;
             this.txtBoxPower6.Size = new System.Drawing.Size(120, 21);
             this.txtBoxPower6.TabIndex = 16;
             this.txtBoxPower6.Text = "0";
@@ -413,6 +415,7 @@
             // 
             this.txtBoxPower5.Location = new System.Drawing.Point(212, 163);
             this.txtBoxPower5.Name = "txtBoxPower5";
+            this.txtBoxPower5.ReadOnly = true;
             this.txtBoxPower5.Size = new System.Drawing.Size(120, 21);
             this.txtBoxPower5.TabIndex = 15;
             this.txtBoxPower5.Text = "0";
@@ -432,6 +435,7 @@
             // 
             this.txtBoxPower4.Location = new System.Drawing.Point(212, 136);
             this.txtBoxPower4.Name = "txtBoxPower4";
+            this.txtBoxPower4.ReadOnly = true;
             this.txtBoxPower4.Size = new System.Drawing.Size(120, 21);
             this.txtBoxPower4.TabIndex = 14;
             this.txtBoxPower4.Text = "0";
@@ -451,6 +455,7 @@
             // 
             this.txtBoxPower3.Location = new System.Drawing.Point(212, 109);
             this.txtBoxPower3.Name = "txtBoxPower3";
+            this.txtBoxPower3.ReadOnly = true;
             this.txtBoxPower3.Size = new System.Drawing.Size(120, 21);
             this.txtBoxPower3.TabIndex = 13;
             this.txtBoxPower3.Text = "0";
@@ -470,6 +475,7 @@
             // 
             this.txtBoxPower2.Location = new System.Drawing.Point(212, 82);
             this.txtBoxPower2.Name = "txtBoxPower2";
+            this.txtBoxPower2.ReadOnly = true;
             this.txtBoxPower2.Size = new System.Drawing.Size(120, 21);
             this.txtBoxPower2.TabIndex = 12;
             this.txtBoxPower2.Text = "0";
@@ -489,20 +495,21 @@
             // 
             this.txtBoxPower1.Location = new System.Drawing.Point(212, 55);
             this.txtBoxPower1.Name = "txtBoxPower1";
+            this.txtBoxPower1.ReadOnly = true;
             this.txtBoxPower1.Size = new System.Drawing.Size(120, 21);
             this.txtBoxPower1.TabIndex = 11;
             this.txtBoxPower1.Text = "0";
             this.txtBoxPower1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtBoxPower1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBox_KeyDown);
             // 
-            // label19
+            // lblDCount
             // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(515, 38);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(53, 12);
-            this.label19.TabIndex = 11;
-            this.label19.Text = "暴击无损";
+            this.lblDCount.AutoSize = true;
+            this.lblDCount.Location = new System.Drawing.Point(515, 38);
+            this.lblDCount.Name = "lblDCount";
+            this.lblDCount.Size = new System.Drawing.Size(53, 12);
+            this.lblDCount.TabIndex = 11;
+            this.lblDCount.Text = "暴击无损";
             // 
             // lblSelect
             // 
@@ -513,23 +520,23 @@
             this.lblSelect.TabIndex = 11;
             this.lblSelect.Text = "迷雾选项（可选）";
             // 
-            // label11
+            // lblMistery
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(252, 38);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(41, 12);
-            this.label11.TabIndex = 11;
-            this.label11.Text = "迷兵力";
+            this.lblMistery.AutoSize = true;
+            this.lblMistery.Location = new System.Drawing.Point(252, 38);
+            this.lblMistery.Name = "lblMistery";
+            this.lblMistery.Size = new System.Drawing.Size(41, 12);
+            this.lblMistery.TabIndex = 11;
+            this.lblMistery.Text = "迷兵力";
             // 
-            // label18
+            // lblNCount
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(382, 38);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(53, 12);
-            this.label18.TabIndex = 11;
-            this.label18.Text = "不暴无损";
+            this.lblNCount.AutoSize = true;
+            this.lblNCount.Location = new System.Drawing.Point(382, 38);
+            this.lblNCount.Name = "lblNCount";
+            this.lblNCount.Size = new System.Drawing.Size(53, 12);
+            this.lblNCount.TabIndex = 11;
+            this.lblNCount.Text = "不暴无损";
             // 
             // label10
             // 
@@ -1220,12 +1227,12 @@
         private System.Windows.Forms.TextBox txtBoxDPower2;
         private System.Windows.Forms.TextBox txtBoxNPower2;
         private System.Windows.Forms.TextBox txtBoxDPower1;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label lblDCount;
+        private System.Windows.Forms.Label lblNCount;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label lblSelect;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblMistery;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.TextBox txtBoxNPower1;
         private System.Windows.Forms.Label label13;
