@@ -40,7 +40,7 @@ namespace SpartanWarsTool.dbOperate
             StringBuilder sbSql = new StringBuilder();
             dbo.RemoveAllParameters();
 
-            sbSql.Append(" select soldier_count from mysteryData ");
+            sbSql.Append(" select soldier_type,soldier_count from mysteryData ");
             sbSql.Append(" where 1 = 1 ");
 
             if (!string.IsNullOrEmpty(entity.difficulty))

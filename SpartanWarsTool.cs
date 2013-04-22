@@ -50,25 +50,25 @@ namespace SpartanWarsTool
             cbBoxSoldier2.Enabled = false;
             cbBoxSoldier3.Enabled = false;
 
-            txtBox_sword.GotFocus += new EventHandler(txtBox_GotFocus);
-            txtBox_spear.GotFocus += new EventHandler(txtBox_GotFocus);
-            txtBox_ax.GotFocus += new EventHandler(txtBox_GotFocus);
-            txtBox_bow.GotFocus += new EventHandler(txtBox_GotFocus);
-            txtBox_infantry.GotFocus += new EventHandler(txtBox_GotFocus);
-            txtBox_ride.GotFocus += new EventHandler(txtBox_GotFocus);
-            txtBox_godadd_infantry.GotFocus += new EventHandler(txtBox_GotFocus);
-            txtBox_godadd_bow.GotFocus += new EventHandler(txtBox_GotFocus);
-            txtBox_godadd_ride.GotFocus += new EventHandler(txtBox_GotFocus);
-            txtBox_morale.GotFocus += new EventHandler(txtBox_GotFocus);
-            txtBox_satisfy.GotFocus += new EventHandler(txtBox_GotFocus);
-            txtBoxPower1.GotFocus += new EventHandler(txtBox_GotFocus);
-            txtBoxPower2.GotFocus += new EventHandler(txtBox_GotFocus);
-            txtBoxPower3.GotFocus += new EventHandler(txtBox_GotFocus);
-            txtBoxPower4.GotFocus += new EventHandler(txtBox_GotFocus);
-            txtBoxPower5.GotFocus += new EventHandler(txtBox_GotFocus);
-            txtBoxPower6.GotFocus += new EventHandler(txtBox_GotFocus);
-            txtBoxPower7.GotFocus += new EventHandler(txtBox_GotFocus);
-            txtBoxSelfPower.GotFocus += new EventHandler(txtBox_GotFocus);
+            txtBox_sword.GotFocus += txtBox_GotFocus;
+            txtBox_spear.GotFocus += txtBox_GotFocus;
+            txtBox_ax.GotFocus += txtBox_GotFocus;
+            txtBox_bow.GotFocus += txtBox_GotFocus;
+            txtBox_infantry.GotFocus += txtBox_GotFocus;
+            txtBox_ride.GotFocus += txtBox_GotFocus;
+            txtBox_godadd_infantry.GotFocus += txtBox_GotFocus;
+            txtBox_godadd_bow.GotFocus += txtBox_GotFocus;
+            txtBox_godadd_ride.GotFocus += txtBox_GotFocus;
+            txtBox_morale.GotFocus += txtBox_GotFocus;
+            txtBox_satisfy.GotFocus += txtBox_GotFocus;
+            txtBoxPower1.GotFocus += txtBox_GotFocus;
+            txtBoxPower2.GotFocus += txtBox_GotFocus;
+            txtBoxPower3.GotFocus += txtBox_GotFocus;
+            txtBoxPower4.GotFocus += txtBox_GotFocus;
+            txtBoxPower5.GotFocus += txtBox_GotFocus;
+            txtBoxPower6.GotFocus += txtBox_GotFocus;
+            txtBoxPower7.GotFocus += txtBox_GotFocus;
+            txtBoxSelfPower.GotFocus += txtBox_GotFocus;
 
             txtBox_sword.Tag = false;
             txtBox_spear.Tag = false;
@@ -89,25 +89,25 @@ namespace SpartanWarsTool
             txtBoxPower7.Tag = false;
             txtBoxSelfPower.Tag = false;
 
-            txtBox_sword.MouseUp += new MouseEventHandler(txtBox_MouseUp);
-            txtBox_spear.MouseUp += new MouseEventHandler(txtBox_MouseUp);
-            txtBox_ax.MouseUp += new MouseEventHandler(txtBox_MouseUp);
-            txtBox_bow.MouseUp += new MouseEventHandler(txtBox_MouseUp);
-            txtBox_infantry.MouseUp += new MouseEventHandler(txtBox_MouseUp);
-            txtBox_ride.MouseUp += new MouseEventHandler(txtBox_MouseUp);
-            txtBox_godadd_infantry.MouseUp += new MouseEventHandler(txtBox_MouseUp);
-            txtBox_godadd_bow.MouseUp += new MouseEventHandler(txtBox_MouseUp);
-            txtBox_godadd_ride.MouseUp += new MouseEventHandler(txtBox_MouseUp);
-            txtBox_morale.MouseUp += new MouseEventHandler(txtBox_MouseUp);
-            txtBox_satisfy.MouseUp += new MouseEventHandler(txtBox_MouseUp);
-            txtBoxPower1.MouseUp += new MouseEventHandler(txtBox_MouseUp);
-            txtBoxPower2.MouseUp += new MouseEventHandler(txtBox_MouseUp);
-            txtBoxPower3.MouseUp += new MouseEventHandler(txtBox_MouseUp);
-            txtBoxPower4.MouseUp += new MouseEventHandler(txtBox_MouseUp);
-            txtBoxPower5.MouseUp += new MouseEventHandler(txtBox_MouseUp);
-            txtBoxPower6.MouseUp += new MouseEventHandler(txtBox_MouseUp);
-            txtBoxPower7.MouseUp += new MouseEventHandler(txtBox_MouseUp);
-            txtBoxSelfPower.MouseUp += new MouseEventHandler(txtBox_MouseUp);
+            txtBox_sword.MouseUp += txtBox_MouseUp;
+            txtBox_spear.MouseUp += txtBox_MouseUp;
+            txtBox_ax.MouseUp += txtBox_MouseUp;
+            txtBox_bow.MouseUp += txtBox_MouseUp;
+            txtBox_infantry.MouseUp += txtBox_MouseUp;
+            txtBox_ride.MouseUp += txtBox_MouseUp;
+            txtBox_godadd_infantry.MouseUp += txtBox_MouseUp;
+            txtBox_godadd_bow.MouseUp += txtBox_MouseUp;
+            txtBox_godadd_ride.MouseUp += txtBox_MouseUp;
+            txtBox_morale.MouseUp += txtBox_MouseUp;
+            txtBox_satisfy.MouseUp += txtBox_MouseUp;
+            txtBoxPower1.MouseUp += txtBox_MouseUp;
+            txtBoxPower2.MouseUp += txtBox_MouseUp;
+            txtBoxPower3.MouseUp += txtBox_MouseUp;
+            txtBoxPower4.MouseUp += txtBox_MouseUp;
+            txtBoxPower5.MouseUp += txtBox_MouseUp;
+            txtBoxPower6.MouseUp += txtBox_MouseUp;
+            txtBoxPower7.MouseUp += txtBox_MouseUp;
+            txtBoxSelfPower.MouseUp += txtBox_MouseUp;
 
         }
 
@@ -187,7 +187,7 @@ namespace SpartanWarsTool
                     return;
                 }
 
-                calculatePower();
+                CalculatePower();
 
                 switch (txtBoxName)
                 {
@@ -236,14 +236,12 @@ namespace SpartanWarsTool
         /// <summary>
         /// 计算无损核心算法(排斥法)
         /// </summary>
-        private void calculatePower()
+        private void CalculatePower()
         {
             InitCalPower();
             //满意度和士气值在4500-9000之间分为3个档次，4500-5000为一档，5001-6000为一档，6001-8000为一档，8001-9000为一档，加成分别为0.00,0.01,0.03,0.05
-            double satisfiction;
-            double morale;
-            satisfiction = double.Parse(txtBox_satisfy.Text);
-            morale = double.Parse(txtBox_morale.Text);
+            double satisfiction = double.Parse(txtBox_satisfy.Text);
+            double morale = double.Parse(txtBox_morale.Text);
 
             //满意度加成
             if (satisfiction >= 4500 && satisfiction <= 5000)
@@ -285,47 +283,47 @@ namespace SpartanWarsTool
 
 
             //科技神满意度加成(其它一级1%，弓一级2%)
-            double tec_sword = double.Parse(txtBox_sword.Text) / 100;
-            double tec_spear = double.Parse(txtBox_spear.Text) / 100;
-            double tec_ax = double.Parse(txtBox_ax.Text) / 100;
-            double tec_infantry = double.Parse(txtBox_infantry.Text) / 100;
-            double tec_bow = double.Parse(txtBox_bow.Text) * 2 / 100;
-            double tec_ride = double.Parse(txtBox_ride.Text) / 100;
-            double god_bow = double.Parse(txtBox_godadd_bow.Text);
-            double god_infantry = double.Parse(txtBox_godadd_infantry.Text);
-            double god_ride = double.Parse(txtBox_godadd_ride.Text);
+            double tecSword = double.Parse(txtBox_sword.Text) / 100;
+            double tecSpear = double.Parse(txtBox_spear.Text) / 100;
+            double tecAx = double.Parse(txtBox_ax.Text) / 100;
+            double tecInfantry = double.Parse(txtBox_infantry.Text) / 100;
+            double tecBow = double.Parse(txtBox_bow.Text) * 2 / 100;
+            double tecRide = double.Parse(txtBox_ride.Text) / 100;
+            double godBow = double.Parse(txtBox_godadd_bow.Text);
+            double godInfantry = double.Parse(txtBox_godadd_infantry.Text);
+            double godRide = double.Parse(txtBox_godadd_ride.Text);
 
 
             //兵力数量
-            int c_sword_infantry = int.Parse(txtBoxPower1.Text);
-            int c_spear_infantry = int.Parse(txtBoxPower2.Text);
-            int c_ax_infantry = int.Parse(txtBoxPower3.Text); ;
-            int c_bow = int.Parse(txtBoxPower4.Text); ;
-            int c_sword_ride = int.Parse(txtBoxPower5.Text); ;
-            int c_spear_ride = int.Parse(txtBoxPower6.Text); ;
-            int c_ax_ride = int.Parse(txtBoxPower7.Text); ;
+            int cSwordInfantry = int.Parse(txtBoxPower1.Text);
+            int cSpearInfantry = int.Parse(txtBoxPower2.Text);
+            int cAxInfantry = int.Parse(txtBoxPower3.Text);
+            int cBow = int.Parse(txtBoxPower4.Text);
+            int cSwordRide = int.Parse(txtBoxPower5.Text);
+            int cSpearRide = int.Parse(txtBoxPower6.Text);
+            int cAxRide = int.Parse(txtBoxPower7.Text);
 
             //单位战力
-            double unitTotalPower_infantry_sword = SpartanConst.UnitPower.INFANTRY_SWORD * (1 + satisfiction + morale + tec_sword + tec_infantry) + god_infantry; ;
-            double unitTotalPower_infantry_spear = SpartanConst.UnitPower.INFANTRY_SPEAR * (1 + satisfiction + morale + tec_spear + tec_infantry) + god_infantry; ;
-            double unitTotalPower_infantry_ax = SpartanConst.UnitPower.INFANTRY_AX * (1 + satisfiction + morale + tec_ax + tec_infantry) + god_infantry;
-            double unitTotalPower_bow = SpartanConst.UnitPower.BOW * (1 + satisfiction + morale + tec_bow) + god_bow;
-            double unitTotalPower_ride_sword = SpartanConst.UnitPower.RIDE_SWORD * (1 + satisfiction + morale + tec_sword + tec_ride) + god_ride;
-            double unitTotalPower_ride_spear = SpartanConst.UnitPower.RIDE_SPEAR * (1 + satisfiction + morale + tec_spear + tec_ride) + god_ride;
-            double unitTotalPower_ride_ax = SpartanConst.UnitPower.RIDE_AX * (1 + satisfiction + morale + tec_ax + tec_ride) + god_ride;
+            double unitTotalPowerInfantrySword = SpartanConst.UnitPower.INFANTRY_SWORD * (1 + satisfiction + morale + tecSword + tecInfantry) + godInfantry; ;
+            double unitTotalPowerInfantrySpear = SpartanConst.UnitPower.INFANTRY_SPEAR * (1 + satisfiction + morale + tecSpear + tecInfantry) + godInfantry; ;
+            double unitTotalPowerInfantryAx = SpartanConst.UnitPower.INFANTRY_AX * (1 + satisfiction + morale + tecAx + tecInfantry) + godInfantry;
+            double unitTotalPowerBow = SpartanConst.UnitPower.BOW * (1 + satisfiction + morale + tecBow) + godBow;
+            double unitTotalPowerRideSword = SpartanConst.UnitPower.RIDE_SWORD * (1 + satisfiction + morale + tecSword + tecRide) + godRide;
+            double unitTotalPowerRideSpear = SpartanConst.UnitPower.RIDE_SPEAR * (1 + satisfiction + morale + tecSpear + tecRide) + godRide;
+            double unitTotalPowerRideAx = SpartanConst.UnitPower.RIDE_AX * (1 + satisfiction + morale + tecAx + tecRide) + godRide;
 
             //无损所需兵力过渡变量
-            int c_need_n;
-            int c_need_d;
+            int cNeedN;
+            int cNeedD;
 
             //无损兵力数组
-            int[] c_need_normal = new int[7];
-            int[] c_need_double = new int[7];
+            var cNeedNormal = new int[7];
+            var cNeedDouble = new int[7];
             //初始化兵力
             for (int i = 0; i < 7; i++)
             {
-                c_need_normal[i] = -1;
-                c_need_double[i] = -1;
+                cNeedNormal[i] = -1;
+                cNeedDouble[i] = -1;
             }
 
             //敌军总战力
@@ -335,687 +333,436 @@ namespace SpartanWarsTool
 
             //列举敌对7种兵可出的兵种及相应数量
             //剑步
-            if (c_sword_infantry > 0)
+            if (cSwordInfantry > 0)
             {
                 //设置不能无损的兵种为0
-                c_need_normal[0] = 0;
-                c_need_normal[2] = 0;
-                c_need_normal[4] = 0;
-                c_need_normal[6] = 0;
-                c_need_double[0] = 0;
-                c_need_double[2] = 0;
-                c_need_double[4] = 0;
-                c_need_double[6] = 0;
+                cNeedNormal[0] = 0;
+                cNeedNormal[2] = 0;
+                cNeedNormal[4] = 0;
+                cNeedNormal[6] = 0;
+                cNeedDouble[0] = 0;
+                cNeedDouble[2] = 0;
+                cNeedDouble[4] = 0;
+                cNeedDouble[6] = 0;
 
-                enemyPower = SpartanConst.UnitPower.INFANTRY_SWORD * c_sword_infantry;
+                enemyPower = SpartanConst.UnitPower.INFANTRY_SWORD * cSwordInfantry;
                 //矛步
-                c_need_n = Convert.ToInt32(Math.Round(enemyPower / (0.2 * unitTotalPower_infantry_spear)));
-                if (c_need_normal[1] == -1 || (c_need_normal[1] < c_need_n && c_need_normal[1] != 0))
+                cNeedN = Convert.ToInt32(Math.Round(enemyPower / (0.2 * unitTotalPowerInfantrySpear)));
+                if (cNeedNormal[1] == -1 || (cNeedNormal[1] < cNeedN && cNeedNormal[1] != 0))
                 {
-                    c_need_normal[1] = c_need_n;
-                    c_need_double[1] = c_need_n;
+                    cNeedNormal[1] = cNeedN;
+                    cNeedDouble[1] = cNeedN;
                 }
                 //矛骑
-                c_need_n = Convert.ToInt32(Math.Round(enemyPower * 1.3 / (0.2 * unitTotalPower_ride_spear)));
-                if (c_need_normal[5] == -1 || c_need_normal[5] < c_need_n && c_need_normal[5] != 0)
+                cNeedN = Convert.ToInt32(Math.Round(enemyPower * 1.3 / (0.2 * unitTotalPowerRideSpear)));
+                if (cNeedNormal[5] == -1 || cNeedNormal[5] < cNeedN && cNeedNormal[5] != 0)
                 {
-                    c_need_normal[5] = c_need_n;
-                    c_need_double[5] = c_need_n;
+                    cNeedNormal[5] = cNeedN;
+                    cNeedDouble[5] = cNeedN;
                 }
                 //弓
-                c_need_n = Convert.ToInt32(Math.Round(enemyPower / (0.3 * unitTotalPower_bow)));
-                if (c_need_normal[3] == -1 || (c_need_normal[3] < c_need_n && c_need_normal[3] != 0))
+                cNeedN = Convert.ToInt32(Math.Round(enemyPower / (0.3 * unitTotalPowerBow)));
+                if (cNeedNormal[3] == -1 || (cNeedNormal[3] < cNeedN && cNeedNormal[3] != 0))
                 {
-                    c_need_normal[3] = c_need_n;
-                    c_need_double[3] = c_need_n;
+                    cNeedNormal[3] = cNeedN;
+                    cNeedDouble[3] = cNeedN;
                 }
 
             }
             //矛步
-            if (c_spear_infantry > 0)
+            if (cSpearInfantry > 0)
             {
                 //设置不能无损的兵种为0
-                c_need_normal[0] = 0;
-                c_need_normal[1] = 0;
-                c_need_normal[4] = 0;
-                c_need_normal[5] = 0;
-                c_need_double[0] = 0;
-                c_need_double[1] = 0;
-                c_need_double[4] = 0;
-                c_need_double[5] = 0;
+                cNeedNormal[0] = 0;
+                cNeedNormal[1] = 0;
+                cNeedNormal[4] = 0;
+                cNeedNormal[5] = 0;
+                cNeedDouble[0] = 0;
+                cNeedDouble[1] = 0;
+                cNeedDouble[4] = 0;
+                cNeedDouble[5] = 0;
 
-                enemyPower = SpartanConst.UnitPower.INFANTRY_SPEAR * c_spear_infantry;
+                enemyPower = SpartanConst.UnitPower.INFANTRY_SPEAR * cSpearInfantry;
                 //斧步
-                c_need_n = Convert.ToInt32(Math.Round(enemyPower / (0.2 * unitTotalPower_infantry_ax)));
-                if (c_need_normal[2] == -1 || (c_need_normal[2] < c_need_n && c_need_normal[2] != 0))
+                cNeedN = Convert.ToInt32(Math.Round(enemyPower / (0.2 * unitTotalPowerInfantryAx)));
+                if (cNeedNormal[2] == -1 || (cNeedNormal[2] < cNeedN && cNeedNormal[2] != 0))
                 {
-                    c_need_normal[2] = c_need_n;
-                    c_need_double[2] = c_need_n;
+                    cNeedNormal[2] = cNeedN;
+                    cNeedDouble[2] = cNeedN;
                 }
                 //斧骑
-                c_need_n = Convert.ToInt32(Math.Round(enemyPower * 1.3 / (0.2 * unitTotalPower_ride_ax)));
-                if (c_need_normal[6] == -1 || c_need_normal[6] < c_need_n && c_need_normal[6] != 0)
+                cNeedN = Convert.ToInt32(Math.Round(enemyPower * 1.3 / (0.2 * unitTotalPowerRideAx)));
+                if (cNeedNormal[6] == -1 || cNeedNormal[6] < cNeedN && cNeedNormal[6] != 0)
                 {
-                    c_need_normal[6] = c_need_n;
-                    c_need_double[6] = c_need_n;
+                    cNeedNormal[6] = cNeedN;
+                    cNeedDouble[6] = cNeedN;
                 }
                 //弓
-                c_need_n = Convert.ToInt32(Math.Round(enemyPower / (0.3 * unitTotalPower_bow)));
-                if (c_need_normal[3] == -1 || (c_need_normal[3] < c_need_n && c_need_normal[3] != 0))
+                cNeedN = Convert.ToInt32(Math.Round(enemyPower / (0.3 * unitTotalPowerBow)));
+                if (cNeedNormal[3] == -1 || (cNeedNormal[3] < cNeedN && cNeedNormal[3] != 0))
                 {
-                    c_need_normal[3] = c_need_n;
-                    c_need_double[3] = c_need_n;
+                    cNeedNormal[3] = cNeedN;
+                    cNeedDouble[3] = cNeedN;
                 }
             }
             //斧步
-            if (c_ax_infantry > 0)
+            if (cAxInfantry > 0)
             {
                 //设置不能无损的兵种为0
-                c_need_normal[1] = 0;
-                c_need_normal[2] = 0;
-                c_need_normal[5] = 0;
-                c_need_normal[6] = 0;
-                c_need_double[1] = 0;
-                c_need_double[2] = 0;
-                c_need_double[5] = 0;
-                c_need_double[6] = 0;
+                cNeedNormal[1] = 0;
+                cNeedNormal[2] = 0;
+                cNeedNormal[5] = 0;
+                cNeedNormal[6] = 0;
+                cNeedDouble[1] = 0;
+                cNeedDouble[2] = 0;
+                cNeedDouble[5] = 0;
+                cNeedDouble[6] = 0;
 
-                enemyPower = SpartanConst.UnitPower.INFANTRY_AX * c_ax_infantry;
+                enemyPower = SpartanConst.UnitPower.INFANTRY_AX * cAxInfantry;
                 //剑步
-                c_need_n = Convert.ToInt32(Math.Round(enemyPower / (0.2 * unitTotalPower_infantry_sword)));
-                if (c_need_normal[0] == -1 || (c_need_normal[0] < c_need_n && c_need_normal[0] != 0))
+                cNeedN = Convert.ToInt32(Math.Round(enemyPower / (0.2 * unitTotalPowerInfantrySword)));
+                if (cNeedNormal[0] == -1 || (cNeedNormal[0] < cNeedN && cNeedNormal[0] != 0))
                 {
-                    c_need_normal[0] = c_need_n;
-                    c_need_double[0] = c_need_n;
+                    cNeedNormal[0] = cNeedN;
+                    cNeedDouble[0] = cNeedN;
                 }
                 //剑骑
-                c_need_n = Convert.ToInt32(Math.Round(enemyPower * 1.3 / (0.2 * unitTotalPower_ride_sword)));
-                if (c_need_normal[4] == -1 || c_need_normal[4] < c_need_n && c_need_normal[4] != 0)
+                cNeedN = Convert.ToInt32(Math.Round(enemyPower * 1.3 / (0.2 * unitTotalPowerRideSword)));
+                if (cNeedNormal[4] == -1 || cNeedNormal[4] < cNeedN && cNeedNormal[4] != 0)
                 {
-                    c_need_normal[4] = c_need_n;
-                    c_need_double[4] = c_need_n;
+                    cNeedNormal[4] = cNeedN;
+                    cNeedDouble[4] = cNeedN;
                 }
                 //弓
-                c_need_n = Convert.ToInt32(Math.Round(enemyPower / (0.3 * unitTotalPower_bow)));
-                if (c_need_normal[3] == -1 || (c_need_normal[3] < c_need_n && c_need_normal[3] != 0))
+                cNeedN = Convert.ToInt32(Math.Round(enemyPower / (0.3 * unitTotalPowerBow)));
+                if (cNeedNormal[3] == -1 || (cNeedNormal[3] < cNeedN && cNeedNormal[3] != 0))
                 {
-                    c_need_normal[3] = c_need_n;
-                    c_need_double[3] = c_need_n;
+                    cNeedNormal[3] = cNeedN;
+                    cNeedDouble[3] = cNeedN;
                 }
             }
             //弓
-            if (c_bow > 0)
+            if (cBow > 0)
             {
                 //设置不能无损的兵种为0
-                c_need_normal[0] = 0;
-                c_need_normal[1] = 0;
-                c_need_normal[2] = 0;
-                c_need_normal[3] = 0;
-                c_need_double[0] = 0;
-                c_need_double[1] = 0;
-                c_need_double[2] = 0;
-                c_need_double[3] = 0;
+                cNeedNormal[0] = 0;
+                cNeedNormal[1] = 0;
+                cNeedNormal[2] = 0;
+                cNeedNormal[3] = 0;
+                cNeedDouble[0] = 0;
+                cNeedDouble[1] = 0;
+                cNeedDouble[2] = 0;
+                cNeedDouble[3] = 0;
 
-                enemyPower = SpartanConst.UnitPower.BOW * c_bow;
+                enemyPower = SpartanConst.UnitPower.BOW * cBow;
                 dEnemyPower = enemyPower * 2;
                 //剑骑
-                c_need_n = Convert.ToInt32(Math.Round(enemyPower / (0.3 * unitTotalPower_ride_sword)));
-                if (c_need_normal[4] == -1 || (c_need_normal[4] < c_need_n && c_need_normal[4] != 0))
+                cNeedN = Convert.ToInt32(Math.Round(enemyPower / (0.3 * unitTotalPowerRideSword)));
+                if (cNeedNormal[4] == -1 || (cNeedNormal[4] < cNeedN && cNeedNormal[4] != 0))
                 {
-                    c_need_normal[4] = c_need_n;
+                    cNeedNormal[4] = cNeedN;
                 }
-                c_need_d = Convert.ToInt32(Math.Round(dEnemyPower / (0.3 * unitTotalPower_ride_sword)));
-                if (c_need_double[4] == -1 || (c_need_double[4] < c_need_d && c_need_double[4] != 0))
+                cNeedD = Convert.ToInt32(Math.Round(dEnemyPower / (0.3 * unitTotalPowerRideSword)));
+                if (cNeedDouble[4] == -1 || (cNeedDouble[4] < cNeedD && cNeedDouble[4] != 0))
                 {
-                    c_need_double[4] = c_need_d;
+                    cNeedDouble[4] = cNeedD;
                 }
 
                 //矛骑
-                c_need_n = Convert.ToInt32(Math.Round(enemyPower / (0.3 * unitTotalPower_ride_spear)));
-                if (c_need_normal[5] == -1 || c_need_normal[5] < c_need_n && c_need_normal[5] != 0)
+                cNeedN = Convert.ToInt32(Math.Round(enemyPower / (0.3 * unitTotalPowerRideSpear)));
+                if (cNeedNormal[5] == -1 || cNeedNormal[5] < cNeedN && cNeedNormal[5] != 0)
                 {
-                    c_need_normal[5] = c_need_n;
+                    cNeedNormal[5] = cNeedN;
                 }
-                c_need_d = Convert.ToInt32(Math.Round(dEnemyPower / (0.3 * unitTotalPower_ride_spear)));
-                if (c_need_double[5] == -1 || (c_need_double[5] < c_need_d && c_need_double[5] != 0))
+                cNeedD = Convert.ToInt32(Math.Round(dEnemyPower / (0.3 * unitTotalPowerRideSpear)));
+                if (cNeedDouble[5] == -1 || (cNeedDouble[5] < cNeedD && cNeedDouble[5] != 0))
                 {
-                    c_need_double[5] = c_need_d;
+                    cNeedDouble[5] = cNeedD;
                 }
 
                 //斧骑
-                c_need_n = Convert.ToInt32(Math.Round(enemyPower / (0.3 * unitTotalPower_ride_ax)));
-                if (c_need_normal[6] == -1 || (c_need_normal[6] < c_need_n && c_need_normal[6] != 0))
+                cNeedN = Convert.ToInt32(Math.Round(enemyPower / (0.3 * unitTotalPowerRideAx)));
+                if (cNeedNormal[6] == -1 || (cNeedNormal[6] < cNeedN && cNeedNormal[6] != 0))
                 {
-                    c_need_normal[6] = c_need_n;
+                    cNeedNormal[6] = cNeedN;
                 }
-                c_need_d = Convert.ToInt32(Math.Round(dEnemyPower / (0.3 * unitTotalPower_ride_ax)));
-                if (c_need_double[6] == -1 || (c_need_double[6] < c_need_d && c_need_double[6] != 0))
+                cNeedD = Convert.ToInt32(Math.Round(dEnemyPower / (0.3 * unitTotalPowerRideAx)));
+                if (cNeedDouble[6] == -1 || (cNeedDouble[6] < cNeedD && cNeedDouble[6] != 0))
                 {
-                    c_need_double[6] = c_need_d;
+                    cNeedDouble[6] = cNeedD;
                 }
             }
             //剑骑
-            if (c_sword_ride > 0)
+            if (cSwordRide > 0)
             {
                 //设置不能无损的兵种为0
-                c_need_normal[3] = 0;
-                c_need_normal[4] = 0;
-                c_need_normal[6] = 0;
-                c_need_double[3] = 0;
-                c_need_double[4] = 0;
-                c_need_double[6] = 0;
+                cNeedNormal[3] = 0;
+                cNeedNormal[4] = 0;
+                cNeedNormal[6] = 0;
+                cNeedDouble[3] = 0;
+                cNeedDouble[4] = 0;
+                cNeedDouble[6] = 0;
 
-                enemyPower = SpartanConst.UnitPower.RIDE_SWORD * c_sword_ride;
+                enemyPower = SpartanConst.UnitPower.RIDE_SWORD * cSwordRide;
                 dEnemyPower = enemyPower * 2;
                 //剑步
-                c_need_n = Convert.ToInt32(Math.Round(enemyPower / (0.3 * unitTotalPower_infantry_sword)));
-                if (c_need_normal[0] == -1 || (c_need_normal[0] < c_need_n && c_need_normal[0] != 0))
+                cNeedN = Convert.ToInt32(Math.Round(enemyPower / (0.3 * unitTotalPowerInfantrySword)));
+                if (cNeedNormal[0] == -1 || (cNeedNormal[0] < cNeedN && cNeedNormal[0] != 0))
                 {
-                    c_need_normal[0] = c_need_n;
+                    cNeedNormal[0] = cNeedN;
                 }
-                c_need_d = Convert.ToInt32(Math.Round(dEnemyPower / (0.3 * unitTotalPower_infantry_sword)));
-                if (c_need_double[0] == -1 || (c_need_double[0] < c_need_d && c_need_double[0] != 0))
+                cNeedD = Convert.ToInt32(Math.Round(dEnemyPower / (0.3 * unitTotalPowerInfantrySword)));
+                if (cNeedDouble[0] == -1 || (cNeedDouble[0] < cNeedD && cNeedDouble[0] != 0))
                 {
-                    c_need_double[0] = c_need_d;
+                    cNeedDouble[0] = cNeedD;
                 }
 
                 //矛步
-                c_need_n = Convert.ToInt32(Math.Round(enemyPower / (0.5 * unitTotalPower_infantry_spear)));
-                if (c_need_normal[1] == -1 || (c_need_normal[1] < c_need_n && c_need_normal[1] != 0))
+                cNeedN = Convert.ToInt32(Math.Round(enemyPower / (0.5 * unitTotalPowerInfantrySpear)));
+                if (cNeedNormal[1] == -1 || (cNeedNormal[1] < cNeedN && cNeedNormal[1] != 0))
                 {
-                    c_need_normal[1] = c_need_n;
+                    cNeedNormal[1] = cNeedN;
                 }
-                c_need_d = Convert.ToInt32(Math.Round(dEnemyPower / (0.5 * unitTotalPower_infantry_spear)));
-                if (c_need_double[1] == -1 || (c_need_double[1] < c_need_d && c_need_double[1] != 0))
+                cNeedD = Convert.ToInt32(Math.Round(dEnemyPower / (0.5 * unitTotalPowerInfantrySpear)));
+                if (cNeedDouble[1] == -1 || (cNeedDouble[1] < cNeedD && cNeedDouble[1] != 0))
                 {
-                    c_need_double[1] = c_need_d;
+                    cNeedDouble[1] = cNeedD;
                 }
 
                 //斧步
-                c_need_n = Convert.ToInt32(Math.Round(enemyPower * 1.2 / (0.3 * unitTotalPower_infantry_ax)));
-                if (c_need_normal[2] == -1 || (c_need_normal[2] < c_need_n && c_need_normal[2] != 0))
+                cNeedN = Convert.ToInt32(Math.Round(enemyPower * 1.2 / (0.3 * unitTotalPowerInfantryAx)));
+                if (cNeedNormal[2] == -1 || (cNeedNormal[2] < cNeedN && cNeedNormal[2] != 0))
                 {
-                    c_need_normal[2] = c_need_n;
+                    cNeedNormal[2] = cNeedN;
                 }
-                c_need_d = Convert.ToInt32(Math.Round(dEnemyPower * 1.2 / (0.3 * unitTotalPower_infantry_ax)));
-                if (c_need_double[2] == -1 || (c_need_double[2] < c_need_d && c_need_double[2] != 0))
+                cNeedD = Convert.ToInt32(Math.Round(dEnemyPower * 1.2 / (0.3 * unitTotalPowerInfantryAx)));
+                if (cNeedDouble[2] == -1 || (cNeedDouble[2] < cNeedD && cNeedDouble[2] != 0))
                 {
-                    c_need_double[2] = c_need_d;
+                    cNeedDouble[2] = cNeedD;
                 }
 
                 //矛骑
-                c_need_n = Convert.ToInt32(Math.Round(enemyPower / (0.2 * unitTotalPower_ride_spear)));
-                if (c_need_normal[5] == -1 || (c_need_normal[5] < c_need_n && c_need_normal[5] != 0))
+                cNeedN = Convert.ToInt32(Math.Round(enemyPower / (0.2 * unitTotalPowerRideSpear)));
+                if (cNeedNormal[5] == -1 || (cNeedNormal[5] < cNeedN && cNeedNormal[5] != 0))
                 {
-                    c_need_normal[5] = c_need_n;
+                    cNeedNormal[5] = cNeedN;
                 }
-                c_need_d = Convert.ToInt32(Math.Round(dEnemyPower / (0.2 * unitTotalPower_ride_spear)));
-                if (c_need_double[5] == -1 || (c_need_double[5] < c_need_d && c_need_double[5] != 0))
+                cNeedD = Convert.ToInt32(Math.Round(dEnemyPower / (0.2 * unitTotalPowerRideSpear)));
+                if (cNeedDouble[5] == -1 || (cNeedDouble[5] < cNeedD && cNeedDouble[5] != 0))
                 {
-                    c_need_double[5] = c_need_d;
+                    cNeedDouble[5] = cNeedD;
                 }
             }
             //矛骑
-            if (c_spear_ride > 0)
+            if (cSpearRide > 0)
             {
                 //设置不能无损的兵种为0
-                c_need_normal[3] = 0;
-                c_need_normal[4] = 0;
-                c_need_normal[5] = 0;
-                c_need_double[3] = 0;
-                c_need_double[4] = 0;
-                c_need_double[5] = 0;
+                cNeedNormal[3] = 0;
+                cNeedNormal[4] = 0;
+                cNeedNormal[5] = 0;
+                cNeedDouble[3] = 0;
+                cNeedDouble[4] = 0;
+                cNeedDouble[5] = 0;
 
-                enemyPower = SpartanConst.UnitPower.RIDE_SPEAR * c_spear_ride;
+                enemyPower = SpartanConst.UnitPower.RIDE_SPEAR * cSpearRide;
                 dEnemyPower = enemyPower * 2;
                 //剑步
-                c_need_n = Convert.ToInt32(Math.Round(enemyPower * 1.2 / (0.3 * unitTotalPower_infantry_sword)));
-                if (c_need_normal[0] == -1 || (c_need_normal[0] < c_need_n && c_need_normal[0] != 0))
+                cNeedN = Convert.ToInt32(Math.Round(enemyPower * 1.2 / (0.3 * unitTotalPowerInfantrySword)));
+                if (cNeedNormal[0] == -1 || (cNeedNormal[0] < cNeedN && cNeedNormal[0] != 0))
                 {
-                    c_need_normal[0] = c_need_n;
+                    cNeedNormal[0] = cNeedN;
                 }
-                c_need_d = Convert.ToInt32(Math.Round(dEnemyPower * 1.2 / (0.3 * unitTotalPower_infantry_sword)));
-                if (c_need_double[0] == -1 || (c_need_double[0] < c_need_d && c_need_double[0] != 0))
+                cNeedD = Convert.ToInt32(Math.Round(dEnemyPower * 1.2 / (0.3 * unitTotalPowerInfantrySword)));
+                if (cNeedDouble[0] == -1 || (cNeedDouble[0] < cNeedD && cNeedDouble[0] != 0))
                 {
-                    c_need_double[0] = c_need_d;
+                    cNeedDouble[0] = cNeedD;
                 }
 
                 //矛步
-                c_need_n = Convert.ToInt32(Math.Round(enemyPower / (0.3 * unitTotalPower_infantry_spear)));
-                if (c_need_normal[1] == -1 || (c_need_normal[1] < c_need_n && c_need_normal[1] != 0))
+                cNeedN = Convert.ToInt32(Math.Round(enemyPower / (0.3 * unitTotalPowerInfantrySpear)));
+                if (cNeedNormal[1] == -1 || (cNeedNormal[1] < cNeedN && cNeedNormal[1] != 0))
                 {
-                    c_need_normal[1] = c_need_n;
+                    cNeedNormal[1] = cNeedN;
                 }
-                c_need_d = Convert.ToInt32(Math.Round(dEnemyPower / (0.3 * unitTotalPower_infantry_spear)));
-                if (c_need_double[1] == -1 || (c_need_double[1] < c_need_d && c_need_double[1] != 0))
+                cNeedD = Convert.ToInt32(Math.Round(dEnemyPower / (0.3 * unitTotalPowerInfantrySpear)));
+                if (cNeedDouble[1] == -1 || (cNeedDouble[1] < cNeedD && cNeedDouble[1] != 0))
                 {
-                    c_need_double[1] = c_need_d;
+                    cNeedDouble[1] = cNeedD;
                 }
 
                 //斧步
-                c_need_n = Convert.ToInt32(Math.Round(enemyPower / (0.5 * unitTotalPower_infantry_ax)));
-                if (c_need_normal[2] == -1 || (c_need_normal[2] < c_need_n && c_need_normal[2] != 0))
+                cNeedN = Convert.ToInt32(Math.Round(enemyPower / (0.5 * unitTotalPowerInfantryAx)));
+                if (cNeedNormal[2] == -1 || (cNeedNormal[2] < cNeedN && cNeedNormal[2] != 0))
                 {
-                    c_need_normal[2] = c_need_n;
+                    cNeedNormal[2] = cNeedN;
                 }
-                c_need_d = Convert.ToInt32(Math.Round(dEnemyPower / (0.5 * unitTotalPower_infantry_ax)));
-                if (c_need_double[2] == -1 || (c_need_double[2] < c_need_d && c_need_double[2] != 0))
+                cNeedD = Convert.ToInt32(Math.Round(dEnemyPower / (0.5 * unitTotalPowerInfantryAx)));
+                if (cNeedDouble[2] == -1 || (cNeedDouble[2] < cNeedD && cNeedDouble[2] != 0))
                 {
-                    c_need_double[2] = c_need_d;
+                    cNeedDouble[2] = cNeedD;
                 }
 
                 //斧骑
-                c_need_n = Convert.ToInt32(Math.Round(enemyPower / (0.2 * unitTotalPower_ride_ax)));
-                if (c_need_normal[6] == -1 || (c_need_normal[6] < c_need_n && c_need_normal[6] != 0))
+                cNeedN = Convert.ToInt32(Math.Round(enemyPower / (0.2 * unitTotalPowerRideAx)));
+                if (cNeedNormal[6] == -1 || (cNeedNormal[6] < cNeedN && cNeedNormal[6] != 0))
                 {
-                    c_need_normal[6] = c_need_n;
+                    cNeedNormal[6] = cNeedN;
                 }
-                c_need_d = Convert.ToInt32(Math.Round(dEnemyPower / (0.2 * unitTotalPower_ride_ax)));
-                if (c_need_double[6] == -1 || (c_need_double[6] < c_need_d && c_need_double[6] != 0))
+                cNeedD = Convert.ToInt32(Math.Round(dEnemyPower / (0.2 * unitTotalPowerRideAx)));
+                if (cNeedDouble[6] == -1 || (cNeedDouble[6] < cNeedD && cNeedDouble[6] != 0))
                 {
-                    c_need_double[6] = c_need_d;
+                    cNeedDouble[6] = cNeedD;
                 }
             }
             //斧骑
-            if (c_ax_ride > 0)
+            if (cAxRide > 0)
             {
                 //设置不能无损的兵种为0
-                c_need_normal[3] = 0;
-                c_need_normal[5] = 0;
-                c_need_normal[6] = 0;
-                c_need_double[3] = 0;
-                c_need_double[5] = 0;
-                c_need_double[6] = 0;
+                cNeedNormal[3] = 0;
+                cNeedNormal[5] = 0;
+                cNeedNormal[6] = 0;
+                cNeedDouble[3] = 0;
+                cNeedDouble[5] = 0;
+                cNeedDouble[6] = 0;
 
-                enemyPower = SpartanConst.UnitPower.RIDE_AX * c_ax_ride;
+                enemyPower = SpartanConst.UnitPower.RIDE_AX * cAxRide;
                 dEnemyPower = enemyPower * 2;
                 //剑步
-                c_need_n = Convert.ToInt32(Math.Round(enemyPower / (0.5 * unitTotalPower_infantry_sword)));
-                if (c_need_normal[0] == -1 || (c_need_normal[0] < c_need_n && c_need_normal[0] != 0))
+                cNeedN = Convert.ToInt32(Math.Round(enemyPower / (0.5 * unitTotalPowerInfantrySword)));
+                if (cNeedNormal[0] == -1 || (cNeedNormal[0] < cNeedN && cNeedNormal[0] != 0))
                 {
-                    c_need_normal[0] = c_need_n;
+                    cNeedNormal[0] = cNeedN;
                 }
-                c_need_d = Convert.ToInt32(Math.Round(dEnemyPower / (0.5 * unitTotalPower_infantry_sword)));
-                if (c_need_double[0] == -1 || (c_need_double[0] < c_need_d && c_need_double[0] != 0))
+                cNeedD = Convert.ToInt32(Math.Round(dEnemyPower / (0.5 * unitTotalPowerInfantrySword)));
+                if (cNeedDouble[0] == -1 || (cNeedDouble[0] < cNeedD && cNeedDouble[0] != 0))
                 {
-                    c_need_double[0] = c_need_d;
+                    cNeedDouble[0] = cNeedD;
                 }
 
                 //矛步
-                c_need_n = Convert.ToInt32(Math.Round(enemyPower * 1.2 / (0.3 * unitTotalPower_infantry_spear)));
-                if (c_need_normal[1] == -1 || (c_need_normal[1] < c_need_n && c_need_normal[1] != 0))
+                cNeedN = Convert.ToInt32(Math.Round(enemyPower * 1.2 / (0.3 * unitTotalPowerInfantrySpear)));
+                if (cNeedNormal[1] == -1 || (cNeedNormal[1] < cNeedN && cNeedNormal[1] != 0))
                 {
-                    c_need_normal[1] = c_need_n;
+                    cNeedNormal[1] = cNeedN;
                 }
-                c_need_d = Convert.ToInt32(Math.Round(dEnemyPower * 1.2 / (0.3 * unitTotalPower_infantry_spear)));
-                if (c_need_double[1] == -1 || (c_need_double[1] < c_need_d && c_need_double[1] != 0))
+                cNeedD = Convert.ToInt32(Math.Round(dEnemyPower * 1.2 / (0.3 * unitTotalPowerInfantrySpear)));
+                if (cNeedDouble[1] == -1 || (cNeedDouble[1] < cNeedD && cNeedDouble[1] != 0))
                 {
-                    c_need_double[1] = c_need_d;
+                    cNeedDouble[1] = cNeedD;
                 }
 
                 //斧步
-                c_need_n = Convert.ToInt32(Math.Round(enemyPower / (0.3 * unitTotalPower_infantry_ax)));
-                if (c_need_normal[2] == -1 || (c_need_normal[2] < c_need_n && c_need_normal[2] != 0))
+                cNeedN = Convert.ToInt32(Math.Round(enemyPower / (0.3 * unitTotalPowerInfantryAx)));
+                if (cNeedNormal[2] == -1 || (cNeedNormal[2] < cNeedN && cNeedNormal[2] != 0))
                 {
-                    c_need_normal[2] = c_need_n;
+                    cNeedNormal[2] = cNeedN;
                 }
-                c_need_d = Convert.ToInt32(Math.Round(dEnemyPower / (0.3 * unitTotalPower_infantry_ax)));
-                if (c_need_double[2] == -1 || (c_need_double[2] < c_need_d && c_need_double[2] != 0))
+                cNeedD = Convert.ToInt32(Math.Round(dEnemyPower / (0.3 * unitTotalPowerInfantryAx)));
+                if (cNeedDouble[2] == -1 || (cNeedDouble[2] < cNeedD && cNeedDouble[2] != 0))
                 {
-                    c_need_double[2] = c_need_d;
+                    cNeedDouble[2] = cNeedD;
                 }
 
                 //剑骑
-                c_need_n = Convert.ToInt32(Math.Round(enemyPower / (0.2 * unitTotalPower_ride_sword)));
-                if (c_need_normal[4] == -1 || (c_need_normal[4] < c_need_n && c_need_normal[4] != 0))
+                cNeedN = Convert.ToInt32(Math.Round(enemyPower / (0.2 * unitTotalPowerRideSword)));
+                if (cNeedNormal[4] == -1 || (cNeedNormal[4] < cNeedN && cNeedNormal[4] != 0))
                 {
-                    c_need_normal[4] = c_need_n;
+                    cNeedNormal[4] = cNeedN;
                 }
-                c_need_d = Convert.ToInt32(Math.Round(dEnemyPower / (0.2 * unitTotalPower_ride_sword)));
-                if (c_need_double[4] == -1 || (c_need_double[4] < c_need_d && c_need_double[4] != 0))
+                cNeedD = Convert.ToInt32(Math.Round(dEnemyPower / (0.2 * unitTotalPowerRideSword)));
+                if (cNeedDouble[4] == -1 || (cNeedDouble[4] < cNeedD && cNeedDouble[4] != 0))
                 {
-                    c_need_double[4] = c_need_d;
+                    cNeedDouble[4] = cNeedD;
                 }
             }
 
             //分析两个无损数组，将数据填写至输出框
-            if (c_need_normal[0] > 0)
+            if (cNeedNormal[0] > 0)
             {
-                txtBoxNPower1.Text = c_need_normal[0].ToString("n0");
+                txtBoxNPower1.Text = cNeedNormal[0].ToString("n0");
             }
-            if (c_need_normal[1] > 0)
+            if (cNeedNormal[1] > 0)
             {
-                txtBoxNPower2.Text = c_need_normal[1].ToString("n0");
+                txtBoxNPower2.Text = cNeedNormal[1].ToString("n0");
             }
-            if (c_need_normal[2] > 0)
+            if (cNeedNormal[2] > 0)
             {
-                txtBoxNPower3.Text = c_need_normal[2].ToString("n0");
+                txtBoxNPower3.Text = cNeedNormal[2].ToString("n0");
             }
-            if (c_need_normal[3] > 0)
+            if (cNeedNormal[3] > 0)
             {
-                txtBoxNPower4.Text = c_need_normal[3].ToString("n0");
+                txtBoxNPower4.Text = cNeedNormal[3].ToString("n0");
             }
-            if (c_need_normal[4] > 0)
+            if (cNeedNormal[4] > 0)
             {
-                txtBoxNPower5.Text = c_need_normal[4].ToString("n0");
+                txtBoxNPower5.Text = cNeedNormal[4].ToString("n0");
             }
-            if (c_need_normal[5] > 0)
+            if (cNeedNormal[5] > 0)
             {
-                txtBoxNPower6.Text = c_need_normal[5].ToString("n0");
+                txtBoxNPower6.Text = cNeedNormal[5].ToString("n0");
             }
-            if (c_need_normal[6] > 0)
+            if (cNeedNormal[6] > 0)
             {
-                txtBoxNPower7.Text = c_need_normal[6].ToString("n0");
+                txtBoxNPower7.Text = cNeedNormal[6].ToString("n0");
             }
 
-            if (c_need_double[0] > 0)
+            if (cNeedDouble[0] > 0)
             {
-                txtBoxDPower1.Text = c_need_double[0].ToString("n0");
+                txtBoxDPower1.Text = cNeedDouble[0].ToString("n0");
             }
-            if (c_need_double[1] > 0)
+            if (cNeedDouble[1] > 0)
             {
-                txtBoxDPower2.Text = c_need_double[1].ToString("n0");
+                txtBoxDPower2.Text = cNeedDouble[1].ToString("n0");
             }
-            if (c_need_double[2] > 0)
+            if (cNeedDouble[2] > 0)
             {
-                txtBoxDPower3.Text = c_need_double[2].ToString("n0");
+                txtBoxDPower3.Text = cNeedDouble[2].ToString("n0");
             }
-            if (c_need_double[3] > 0)
+            if (cNeedDouble[3] > 0)
             {
-                txtBoxDPower4.Text = c_need_double[3].ToString("n0");
+                txtBoxDPower4.Text = cNeedDouble[3].ToString("n0");
             }
-            if (c_need_double[4] > 0)
+            if (cNeedDouble[4] > 0)
             {
-                txtBoxDPower5.Text = c_need_double[4].ToString("n0");
+                txtBoxDPower5.Text = cNeedDouble[4].ToString("n0");
             }
-            if (c_need_double[5] > 0)
+            if (cNeedDouble[5] > 0)
             {
-                txtBoxDPower6.Text = c_need_double[5].ToString("n0");
+                txtBoxDPower6.Text = cNeedDouble[5].ToString("n0");
             }
-            if (c_need_double[6] > 0)
+            if (cNeedDouble[6] > 0)
             {
-                txtBoxDPower7.Text = c_need_double[6].ToString("n0");
+                txtBoxDPower7.Text = cNeedDouble[6].ToString("n0");
             }
 
             //计算己方损失
             if (txtBoxSelfPower.Text.Equals("0"))
-            {                
+            {
                 return;
             }
             string selfName = cbBoxSelfSoldier.SelectedText;
             double unitSelfPower;
             switch (selfName)
             {
-                case "剑步": unitSelfPower = unitTotalPower_infantry_sword;
+                case "剑步": unitSelfPower = unitTotalPowerInfantrySword;
                     break;
-                case "矛步": unitSelfPower = unitTotalPower_infantry_spear;
+                case "矛步": unitSelfPower = unitTotalPowerInfantrySpear;
                     break;
-                case "斧步": unitSelfPower = unitTotalPower_infantry_ax;
+                case "斧步": unitSelfPower = unitTotalPowerInfantryAx;
                     break;
-                case "弓": unitSelfPower = unitTotalPower_bow;
+                case "弓": unitSelfPower = unitTotalPowerBow;
                     break;
-                case "剑骑": unitSelfPower = unitTotalPower_ride_sword;
+                case "剑骑": unitSelfPower = unitTotalPowerRideSword;
                     break;
-                case "矛骑": unitSelfPower = unitTotalPower_ride_spear;
+                case "矛骑": unitSelfPower = unitTotalPowerRideSpear;
                     break;
-                case "斧骑": unitSelfPower = unitTotalPower_ride_ax;
+                case "斧骑": unitSelfPower = unitTotalPowerRideAx;
                     break;
                 default:
                     break;
             }
-            
-
-        }
-
-        
-        /// <summary>
-        /// 计算无损核心算法(枚举法)（非常坑爹，枚举到双兵种时才想到新方法）
-        /// </summary>
-        private void calculatePower_pre()
-        {
-            InitCalPower();
-            //满意度和士气值在4500-9000之间分为3个档次，4500-5000为一档，5001-6000为一档，6001-8000为一档，8001-9000为一档，加成分别为0.00,0.01,0.03,0.05
-            double satisfiction;
-            double morale;
-            satisfiction = double.Parse(txtBox_satisfy.Text);
-            morale = double.Parse(txtBox_morale.Text);
-
-            //满意度加成
-            if (satisfiction >= 4500 && satisfiction <= 5000)
-            {
-                satisfiction = 0;
-            }
-            else if (satisfiction >= 5001 && satisfiction <= 6000)
-            {
-                satisfiction = 0.01;
-            }
-            else if (satisfiction >= 6001 && satisfiction <= 8000)
-            {
-                satisfiction = 0.03;
-            }
-            else if (satisfiction >= 8001)
-            {
-                satisfiction = 0.05;
-            }
-
-            //士气值加成
-            if (morale >= 4500 && morale <= 5000)
-            {
-                morale = 0;
-            }
-            else if (morale >= 5001 && morale <= 6000)
-            {
-                morale = 0.01;
-            }
-            else if (morale >= 6001 && morale <= 8000)
-            {
-                morale = 0.03;
-            }
-            else if (morale >= 8001)
-            {
-                morale = 0.05;
-            }
-
-            double satisAndMorale = satisfiction + morale;
 
 
-            //科技神满意度加成(其它一级1%，弓一级2%)
-            double tec_sword = double.Parse(txtBox_sword.Text) / 100;
-            double tec_spear = double.Parse(txtBox_spear.Text) / 100;
-            double tec_ax = double.Parse(txtBox_ax.Text) / 100;
-            double tec_infantry = double.Parse(txtBox_infantry.Text) / 100;
-            double tec_bow = double.Parse(txtBox_bow.Text) * 2 / 100;
-            double tec_ride = double.Parse(txtBox_ride.Text) / 100;
-            double god_bow = double.Parse(txtBox_godadd_bow.Text);
-            double god_infantry = double.Parse(txtBox_godadd_infantry.Text);
-            double god_ride = double.Parse(txtBox_godadd_ride.Text);
-
-
-            //兵力数量
-            int c_sword_infantry = int.Parse(txtBoxPower1.Text);
-            int c_spear_infantry = int.Parse(txtBoxPower2.Text);
-            int c_ax_infantry = int.Parse(txtBoxPower3.Text); ;
-            int c_bow = int.Parse(txtBoxPower4.Text); ;
-            int c_sword_ride = int.Parse(txtBoxPower5.Text); ;
-            int c_spear_ride = int.Parse(txtBoxPower6.Text); ;
-            int c_ax_ride = int.Parse(txtBoxPower7.Text); ;
-
-            //单位战力
-            double unitTotalPower_infantry_sword = SpartanConst.UnitPower.INFANTRY_SWORD * (1 + satisfiction + morale + tec_sword + tec_infantry) + god_infantry; ;
-            double unitTotalPower_infantry_spear = SpartanConst.UnitPower.INFANTRY_SPEAR * (1 + satisfiction + morale + tec_spear + tec_infantry) + god_infantry; ;
-            double unitTotalPower_infantry_ax = SpartanConst.UnitPower.INFANTRY_AX * (1 + satisfiction + morale + tec_ax + tec_infantry) + god_infantry;
-            double unitTotalPower_bow = SpartanConst.UnitPower.BOW * (1 + satisfiction + morale + tec_bow) + god_bow;
-            double unitTotalPower_ride_sword = SpartanConst.UnitPower.RIDE_SWORD * (1 + satisfiction + morale + tec_sword + tec_ride) + god_ride;
-            double unitTotalPower_ride_spear = SpartanConst.UnitPower.RIDE_SPEAR * (1 + satisfiction + morale + tec_spear + tec_ride) + god_ride;
-            double unitTotalPower_ride_ax = SpartanConst.UnitPower.RIDE_AX * (1 + satisfiction + morale + tec_ax + tec_ride) + god_ride;
-
-            //无损所需兵力
-            int c_need_1;
-            int c_need_2;
-            int c_need_3;
-            int c_need_4;
-
-            //敌军总战力
-            double enemyPower;
-            //暴击战力
-            double dEnemyPower;
-
-            //无损计算
-            //克制关系：武器克制：矛克剑20%，斧克矛20%，剑克斧20%；兵种克制：弓克步30%，骑克弓30%，步克骑30%
-
-            //枚举各种情况
-
-            //单种兵纵队
-            //剑步，可以出矛步，矛骑，弓三种兵
-            if (c_sword_infantry > 0 && (c_spear_infantry + c_ax_infantry + c_bow + c_sword_ride + c_spear_ride + c_ax_ride) == 0)
-            {
-                enemyPower = SpartanConst.UnitPower.INFANTRY_SWORD * c_sword_infantry;
-                //矛步
-                c_need_1 = Convert.ToInt32(Math.Round(enemyPower / (0.2 * unitTotalPower_infantry_spear)));
-                txtBoxNPower2.Text = c_need_1.ToString("n0");
-                //矛骑
-                c_need_2 = Convert.ToInt32(Math.Round(enemyPower * 1.3 / (0.2 * unitTotalPower_ride_spear)));
-                txtBoxNPower6.Text = c_need_2.ToString("n0");
-                //弓
-                c_need_3 = Convert.ToInt32(Math.Round(enemyPower / (0.3 * unitTotalPower_bow)));
-                txtBoxNPower4.Text = c_need_3.ToString("n0");
-            }
-            //矛步，可以出斧步，斧骑，弓三种兵
-            if (c_spear_infantry > 0 && (c_sword_infantry + c_ax_infantry + c_bow + c_sword_ride + c_spear_ride + c_ax_ride) == 0)
-            {
-                enemyPower = SpartanConst.UnitPower.INFANTRY_SPEAR * c_spear_infantry;
-                //斧步
-                c_need_1 = Convert.ToInt32(Math.Round(enemyPower / (0.2 * unitTotalPower_infantry_ax)));
-                txtBoxNPower3.Text = c_need_1.ToString("n0");
-                //斧骑
-                c_need_2 = Convert.ToInt32(Math.Round(enemyPower * 1.3 / (0.2 * unitTotalPower_ride_ax)));
-                txtBoxNPower7.Text = c_need_2.ToString("n0");
-                //弓
-                c_need_3 = Convert.ToInt32(Math.Round(enemyPower / (0.3 * unitTotalPower_bow)));
-                txtBoxNPower4.Text = c_need_3.ToString("n0");
-            }
-            //斧步，可以出剑步，剑骑，弓三种兵
-            if (c_ax_infantry > 0 && (c_sword_infantry + c_spear_infantry + c_bow + c_sword_ride + c_spear_ride + c_ax_ride) == 0)
-            {
-                enemyPower = SpartanConst.UnitPower.INFANTRY_AX * c_ax_infantry;
-                //剑步
-                c_need_1 = Convert.ToInt32(Math.Round(enemyPower / (0.2 * unitTotalPower_infantry_sword)));
-                txtBoxNPower1.Text = c_need_1.ToString("n0");
-                //剑骑
-                c_need_2 = Convert.ToInt32(Math.Round(enemyPower * 1.3 / (0.2 * unitTotalPower_ride_sword)));
-                txtBoxNPower5.Text = c_need_2.ToString("n0");
-                //弓
-                c_need_3 = Convert.ToInt32(Math.Round(enemyPower / (0.3 * unitTotalPower_bow)));
-                txtBoxNPower4.Text = c_need_3.ToString("n0");
-            }
-            //弓，可以出剑骑，矛骑，斧骑三种兵
-            if (c_bow > 0 && (c_sword_infantry + c_spear_infantry + c_ax_infantry + c_sword_ride + c_spear_ride + c_ax_ride) == 0)
-            {
-                enemyPower = SpartanConst.UnitPower.BOW * c_bow;
-                dEnemyPower = enemyPower * 2;
-                //剑骑
-                c_need_1 = Convert.ToInt32(Math.Round(enemyPower / (0.3 * unitTotalPower_ride_sword)));
-                txtBoxNPower5.Text = c_need_1.ToString("n0");
-                c_need_1 = Convert.ToInt32(Math.Round(dEnemyPower / (0.3 * unitTotalPower_ride_sword)));
-                txtBoxDPower5.Text = c_need_1.ToString("n0");
-                //矛骑
-                c_need_2 = Convert.ToInt32(Math.Round(enemyPower / (0.3 * unitTotalPower_ride_spear)));
-                txtBoxNPower6.Text = c_need_2.ToString("n0");
-                c_need_2 = Convert.ToInt32(Math.Round(dEnemyPower / (0.3 * unitTotalPower_ride_spear)));
-                txtBoxDPower6.Text = c_need_2.ToString("n0");
-                //斧骑
-                c_need_3 = Convert.ToInt32(Math.Round(enemyPower / (0.3 * unitTotalPower_ride_ax)));
-                txtBoxNPower7.Text = c_need_3.ToString("n0");
-                c_need_3 = Convert.ToInt32(Math.Round(dEnemyPower / (0.3 * unitTotalPower_ride_ax)));
-                txtBoxDPower7.Text = c_need_3.ToString("n0");
-            }
-            //剑骑，可以出三步，矛骑四种兵
-            if (c_sword_ride > 0 && (c_sword_infantry + c_spear_infantry + c_ax_infantry + c_bow + c_spear_ride + c_ax_ride) == 0)
-            {
-                enemyPower = SpartanConst.UnitPower.RIDE_SWORD * c_sword_ride;
-                dEnemyPower = enemyPower * 2;
-                //剑步
-                c_need_1 = Convert.ToInt32(Math.Round(enemyPower / (0.3 * unitTotalPower_infantry_sword)));
-                txtBoxNPower1.Text = c_need_1.ToString("n0");
-                c_need_1 = Convert.ToInt32(Math.Round(dEnemyPower / (0.3 * unitTotalPower_infantry_sword)));
-                txtBoxDPower1.Text = c_need_1.ToString("n0");
-                //矛步
-                c_need_2 = Convert.ToInt32(Math.Round(enemyPower / (0.5 * unitTotalPower_infantry_spear)));
-                txtBoxNPower2.Text = c_need_2.ToString("n0");
-                c_need_2 = Convert.ToInt32(Math.Round(dEnemyPower / (0.5 * unitTotalPower_infantry_spear)));
-                txtBoxDPower2.Text = c_need_2.ToString("n0");
-                //斧步
-                c_need_3 = Convert.ToInt32(Math.Round(enemyPower * 1.2 / (0.3 * unitTotalPower_infantry_ax)));
-                txtBoxNPower3.Text = c_need_3.ToString("n0");
-                c_need_3 = Convert.ToInt32(Math.Round(dEnemyPower * 1.2 / (0.3 * unitTotalPower_infantry_ax)));
-                txtBoxDPower3.Text = c_need_3.ToString("n0");
-                //矛骑
-                c_need_4 = Convert.ToInt32(Math.Round(enemyPower / (0.2 * unitTotalPower_ride_spear)));
-                txtBoxNPower6.Text = c_need_4.ToString("n0");
-                c_need_4 = Convert.ToInt32(Math.Round(dEnemyPower / (0.2 * unitTotalPower_ride_spear)));
-                txtBoxDPower6.Text = c_need_4.ToString("n0");
-            }
-            //矛骑，可以出三步，斧骑四种兵
-            if (c_spear_ride > 0 && (c_sword_infantry + c_spear_infantry + c_ax_infantry + c_bow + c_sword_ride + c_ax_ride) == 0)
-            {
-                enemyPower = SpartanConst.UnitPower.RIDE_SPEAR * c_spear_ride;
-                dEnemyPower = enemyPower * 2;
-                //剑步
-                c_need_1 = Convert.ToInt32(Math.Round(enemyPower * 1.2 / (0.3 * unitTotalPower_infantry_sword)));
-                txtBoxNPower1.Text = c_need_1.ToString("n0");
-                c_need_1 = Convert.ToInt32(Math.Round(dEnemyPower * 1.2 / (0.3 * unitTotalPower_infantry_sword)));
-                txtBoxDPower1.Text = c_need_1.ToString("n0");
-                //矛步
-                c_need_2 = Convert.ToInt32(Math.Round(enemyPower / (0.3 * unitTotalPower_infantry_spear)));
-                txtBoxNPower2.Text = c_need_2.ToString("n0");
-                c_need_2 = Convert.ToInt32(Math.Round(dEnemyPower / (0.3 * unitTotalPower_infantry_spear)));
-                txtBoxDPower2.Text = c_need_2.ToString("n0");
-                //斧步
-                c_need_3 = Convert.ToInt32(Math.Round(enemyPower / (0.5 * unitTotalPower_infantry_ax)));
-                txtBoxNPower3.Text = c_need_3.ToString("n0");
-                c_need_3 = Convert.ToInt32(Math.Round(dEnemyPower / (0.5 * unitTotalPower_infantry_ax)));
-                txtBoxDPower3.Text = c_need_3.ToString("n0");
-                //斧骑
-                c_need_4 = Convert.ToInt32(Math.Round(enemyPower / (0.2 * unitTotalPower_ride_ax)));
-                txtBoxNPower7.Text = c_need_4.ToString("n0");
-                c_need_4 = Convert.ToInt32(Math.Round(dEnemyPower / (0.2 * unitTotalPower_ride_ax)));
-                txtBoxDPower7.Text = c_need_4.ToString("n0");
-            }
-            //斧骑，可以出三步，剑骑四种兵
-            if (c_ax_ride > 0 && (c_sword_infantry + c_spear_infantry + c_ax_infantry + c_bow + c_sword_ride + c_spear_ride) == 0)
-            {
-                enemyPower = SpartanConst.UnitPower.RIDE_AX * c_ax_ride;
-                dEnemyPower = enemyPower * 2;
-                //剑步
-                c_need_1 = Convert.ToInt32(Math.Round(enemyPower / (0.5 * unitTotalPower_infantry_sword)));
-                txtBoxNPower1.Text = c_need_1.ToString("n0");
-                c_need_1 = Convert.ToInt32(Math.Round(dEnemyPower / (0.5 * unitTotalPower_infantry_sword)));
-                txtBoxDPower1.Text = c_need_1.ToString("n0");
-                //矛步
-                c_need_2 = Convert.ToInt32(Math.Round(enemyPower * 1.2 / (0.3 * unitTotalPower_infantry_spear)));
-                txtBoxNPower2.Text = c_need_2.ToString("n0");
-                c_need_2 = Convert.ToInt32(Math.Round(dEnemyPower * 1.2 / (0.3 * unitTotalPower_infantry_spear)));
-                txtBoxDPower2.Text = c_need_2.ToString("n0");
-                //斧步
-                c_need_3 = Convert.ToInt32(Math.Round(enemyPower / (0.3 * unitTotalPower_infantry_ax)));
-                txtBoxNPower3.Text = c_need_3.ToString("n0");
-                c_need_3 = Convert.ToInt32(Math.Round(dEnemyPower / (0.3 * unitTotalPower_infantry_ax)));
-                txtBoxDPower3.Text = c_need_3.ToString("n0");
-                //剑骑
-                c_need_4 = Convert.ToInt32(Math.Round(enemyPower / (0.2 * unitTotalPower_ride_sword)));
-                txtBoxNPower5.Text = c_need_4.ToString("n0");
-                c_need_4 = Convert.ToInt32(Math.Round(dEnemyPower / (0.2 * unitTotalPower_ride_sword)));
-                txtBoxDPower5.Text = c_need_4.ToString("n0");
-            }
-
-            //两种兵纵队
-
-            //双步
-            //剑步+矛步
-            if (c_sword_infantry > 0 && c_spear_infantry > 0 && (c_ax_infantry + c_bow + c_sword_ride + c_spear_ride + c_ax_ride) == 0)
-            {
-
-            }
         }
 
         /// <summary>
@@ -1025,18 +772,72 @@ namespace SpartanWarsTool
         /// <param name="e"></param>
         private void cbBoxDif_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (cbBoxDif.SelectedIndex == 2)
+            {
+                MessageBox.Show("游戏系统未开发完毕！切换至普通难度");
+                cbBoxDif.SelectedIndex = 0;
+            }
             cbBoxLayer.Text = "选择层";
             InitControls();
         }
 
         /// <summary>
-        /// 选择层改变事件
+        /// 选择层改变事件，选择好层后将自动列出此层各兵种所需的最大量
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void cbBoxLayer_SelectedIndexChanged(object sender, EventArgs e)
         {
             InitControls();
+            //初始化兵力数量
+            //兵力数量
+            int cSwordInfantry = 0;
+            int cSpearInfantry = 0;
+            int cAxInfantry = 0;
+            int cBow = 0;
+            int cSwordRide = 0;
+            int cSpearRide = 0;
+            int cAxRide = 0;
+
+            var entity = new DB_mysteryData { Difficulty = Convert.ToString(cbBoxDif.SelectedIndex + 1), Level = Convert.ToString(cbBoxLayer.SelectedIndex + 1) };
+            var ds = entity.Select(entity);
+            if (ds.Tables.Count > 0)
+            {
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                    {
+                        var soldierType = ds.Tables[0].Rows[i]["soldier_type"].ToString();
+                        switch (soldierType)
+                        {
+                            case "剑步":
+                                cSwordInfantry = Convert.ToInt32(ds.Tables[0].Rows[i]["soldier_count"]);
+                                break;
+                            case "矛步":
+                                cSpearInfantry = Convert.ToInt32(ds.Tables[0].Rows[i]["soldier_count"]);
+                                break;
+                            case "斧步":
+                                cAxInfantry = Convert.ToInt32(ds.Tables[0].Rows[i]["soldier_count"]);
+                                break;
+                            case "弓":
+                                cBow = Convert.ToInt32(ds.Tables[0].Rows[i]["soldier_count"]);
+                                break;
+                            case "剑骑":
+                                cSwordRide = Convert.ToInt32(ds.Tables[0].Rows[i]["soldier_count"]);
+                                break;
+                            case "矛骑":
+                                cSpearRide = Convert.ToInt32(ds.Tables[0].Rows[i]["soldier_count"]);
+                                break;
+                            case "斧骑":
+                                cAxRide = Convert.ToInt32(ds.Tables[0].Rows[i]["soldier_count"]);
+                                break;
+                        }
+                    }
+                }
+            }
+
+
+
             //普通难度（1，2，3为单纵队并且只有步兵，4，5，6，7为双纵队并且没有弓，6，7，8，9，10为三纵队并且三兵种都齐全）
             if (cbBoxDif.SelectedIndex == 0)
             {
@@ -1088,12 +889,12 @@ namespace SpartanWarsTool
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void cbBoxSoldier_SelectedIndexChanged(object sender, EventArgs e)
+        private void CbBoxSoldierSelectedIndexChanged(object sender, EventArgs e)
         {
             string preValue = "";
             string difficulty = "";
             string level = "";
-            string soldier_type = "";
+            string soldierType = "";
 
             string cbBoxName = ((ComboBox)sender).Name;
 
@@ -1103,19 +904,19 @@ namespace SpartanWarsTool
                     preValue = cbBoxSoldier1.Tag.ToString();
                     ChangeTxtBoxes(preValue);
                     cbBoxSoldier1.Tag = cbBoxSoldier1.Text;
-                    soldier_type = cbBoxSoldier1.Text;
+                    soldierType = cbBoxSoldier1.Text;
                     break;
                 case "cbBoxSoldier2":
                     preValue = cbBoxSoldier2.Tag.ToString();
                     ChangeTxtBoxes(preValue);
                     cbBoxSoldier2.Tag = cbBoxSoldier2.Text;
-                    soldier_type = cbBoxSoldier2.Text;
+                    soldierType = cbBoxSoldier2.Text;
                     break;
                 case "cbBoxSoldier3":
                     preValue = cbBoxSoldier3.Tag.ToString();
                     ChangeTxtBoxes(preValue);
                     cbBoxSoldier3.Tag = cbBoxSoldier3.Text;
-                    soldier_type = cbBoxSoldier3.Text;
+                    soldierType = cbBoxSoldier3.Text;
                     break;
                 default:
                     break;
@@ -1134,13 +935,10 @@ namespace SpartanWarsTool
 
             level = cbBoxLayer.Text;
 
-            DB_mysteryData db_mystery = new DB_mysteryData();
-            db_mystery.Difficulty = difficulty;
-            db_mystery.Level = level;
-            db_mystery.Type = soldier_type;
+            var dbMystery = new DB_mysteryData { Difficulty = difficulty, Level = level, Type = soldierType };
 
-            string count = "0";
-            DataSet ds = db_mystery.Select(db_mystery);
+            var count = "0";
+            var ds = dbMystery.Select(dbMystery);
             if (ds.Tables.Count > 0)
             {
                 if (ds.Tables[0].Rows.Count > 0)
@@ -1149,7 +947,7 @@ namespace SpartanWarsTool
                 }
             }
 
-            switch (soldier_type)
+            switch (soldierType)
             {
                 case "剑步": txtBoxPower1.Text = count; break;
                 case "矛步": txtBoxPower2.Text = count; break;
@@ -1164,7 +962,7 @@ namespace SpartanWarsTool
 
             SortSoldier();
 
-            calculatePower();
+            CalculatePower();
         }
 
         /// <summary>
@@ -1172,7 +970,7 @@ namespace SpartanWarsTool
         /// </summary>
         private void SortSoldier()
         {
-            DataTable dt = new DataTable();
+            var dt = new DataTable();
             dt.Columns.Add("text", System.Type.GetType("System.String"));
             dt.Columns.Add("value", System.Type.GetType("System.Int32"));
             DataRow dr;
@@ -1249,20 +1047,19 @@ namespace SpartanWarsTool
         /// <param name="preValue"></param>
         private void ChangeTxtBoxes(string preValue)
         {
-            if (!String.IsNullOrEmpty(preValue) && !cbBoxSoldier1.Tag.Equals(cbBoxSoldier2.Tag) && !cbBoxSoldier1.Tag.Equals(cbBoxSoldier3.Tag) && !cbBoxSoldier2.Tag.Equals(cbBoxSoldier3.Tag))
+            if (String.IsNullOrEmpty(preValue) || cbBoxSoldier1.Tag.Equals(cbBoxSoldier2.Tag) ||
+                cbBoxSoldier1.Tag.Equals(cbBoxSoldier3.Tag) || cbBoxSoldier2.Tag.Equals(cbBoxSoldier3.Tag)) return;
+            switch (preValue)
             {
-                switch (preValue)
-                {
-                    case "剑步": txtBoxPower1.Text = "0"; break;
-                    case "矛步": txtBoxPower2.Text = "0"; break;
-                    case "斧步": txtBoxPower3.Text = "0"; break;
-                    case "弓": txtBoxPower4.Text = "0"; break;
-                    case "剑骑": txtBoxPower5.Text = "0"; break;
-                    case "矛骑": txtBoxPower6.Text = "0"; break;
-                    case "斧骑": txtBoxPower7.Text = "0"; break;
-                    default:
-                        break;
-                }
+                case "剑步": txtBoxPower1.Text = "0"; break;
+                case "矛步": txtBoxPower2.Text = "0"; break;
+                case "斧步": txtBoxPower3.Text = "0"; break;
+                case "弓": txtBoxPower4.Text = "0"; break;
+                case "剑骑": txtBoxPower5.Text = "0"; break;
+                case "矛骑": txtBoxPower6.Text = "0"; break;
+                case "斧骑": txtBoxPower7.Text = "0"; break;
+                default:
+                    break;
             }
         }
 
@@ -1417,7 +1214,7 @@ namespace SpartanWarsTool
         /// <param name="e"></param>
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            calculatePower();
+            CalculatePower();
         }
     }
 }

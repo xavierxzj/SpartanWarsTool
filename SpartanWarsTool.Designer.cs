@@ -557,7 +557,7 @@
             this.cbBoxSoldier3.Size = new System.Drawing.Size(121, 20);
             this.cbBoxSoldier3.TabIndex = 4;
             this.cbBoxSoldier3.TabStop = false;
-            this.cbBoxSoldier3.SelectedIndexChanged += new System.EventHandler(this.cbBoxSoldier_SelectedIndexChanged);
+            this.cbBoxSoldier3.SelectedIndexChanged += new System.EventHandler(this.CbBoxSoldierSelectedIndexChanged);
             // 
             // lblSoldier3
             // 
@@ -576,7 +576,7 @@
             this.cbBoxSoldier2.Size = new System.Drawing.Size(121, 20);
             this.cbBoxSoldier2.TabIndex = 3;
             this.cbBoxSoldier2.TabStop = false;
-            this.cbBoxSoldier2.SelectedIndexChanged += new System.EventHandler(this.cbBoxSoldier_SelectedIndexChanged);
+            this.cbBoxSoldier2.SelectedIndexChanged += new System.EventHandler(this.CbBoxSoldierSelectedIndexChanged);
             // 
             // lblSoldier2
             // 
@@ -595,7 +595,7 @@
             this.cbBoxSoldier1.Size = new System.Drawing.Size(121, 20);
             this.cbBoxSoldier1.TabIndex = 2;
             this.cbBoxSoldier1.TabStop = false;
-            this.cbBoxSoldier1.SelectedIndexChanged += new System.EventHandler(this.cbBoxSoldier_SelectedIndexChanged);
+            this.cbBoxSoldier1.SelectedIndexChanged += new System.EventHandler(this.CbBoxSoldierSelectedIndexChanged);
             // 
             // lblSoldier1
             // 
