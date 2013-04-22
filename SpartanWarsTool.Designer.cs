@@ -121,11 +121,21 @@
             this.tabPage_daily = new System.Windows.Forms.TabPage();
             this.tabPage_remind = new System.Windows.Forms.TabPage();
             this.tabPage_gods = new System.Windows.Forms.TabPage();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lblMisterySet = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.tapPages.SuspendLayout();
             this.tabPage_calculate.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnlTroops.SuspendLayout();
             this.pnlSelfInfo.SuspendLayout();
+            this.tabPage_Info.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tapPages
@@ -514,11 +524,11 @@
             // lblSelect
             // 
             this.lblSelect.AutoSize = true;
-            this.lblSelect.Location = new System.Drawing.Point(52, 38);
+            this.lblSelect.Location = new System.Drawing.Point(76, 38);
             this.lblSelect.Name = "lblSelect";
-            this.lblSelect.Size = new System.Drawing.Size(101, 12);
+            this.lblSelect.Size = new System.Drawing.Size(53, 12);
             this.lblSelect.TabIndex = 11;
-            this.lblSelect.Text = "迷雾选项（可选）";
+            this.lblSelect.Text = "迷雾选项";
             // 
             // lblMistery
             // 
@@ -1089,6 +1099,7 @@
             // 
             // tabPage_Info
             // 
+            this.tabPage_Info.Controls.Add(this.panel2);
             this.tabPage_Info.Location = new System.Drawing.Point(4, 22);
             this.tabPage_Info.Name = "tabPage_Info";
             this.tabPage_Info.Padding = new System.Windows.Forms.Padding(3);
@@ -1127,6 +1138,99 @@
             this.tabPage_gods.Text = "神卡收集";
             this.tabPage_gods.UseVisualStyleBackColor = true;
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.comboBox1);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.lblMisterySet);
+            this.panel2.Controls.Add(this.comboBox3);
+            this.panel2.Controls.Add(this.comboBox2);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Location = new System.Drawing.Point(3, 6);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(353, 173);
+            this.panel2.TabIndex = 0;
+            // 
+            // lblMisterySet
+            // 
+            this.lblMisterySet.BackColor = System.Drawing.Color.Silver;
+            this.lblMisterySet.Location = new System.Drawing.Point(85, 9);
+            this.lblMisterySet.Name = "lblMisterySet";
+            this.lblMisterySet.Size = new System.Drawing.Size(183, 23);
+            this.lblMisterySet.TabIndex = 3;
+            this.lblMisterySet.Text = "迷雾配置";
+            this.lblMisterySet.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(39, 133);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 20);
+            this.comboBox1.TabIndex = 9;
+            this.comboBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(8, 137);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(29, 12);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "兵种";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"});
+            this.comboBox2.Location = new System.Drawing.Point(39, 91);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(121, 20);
+            this.comboBox2.TabIndex = 8;
+            this.comboBox2.TabStop = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(8, 95);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(29, 12);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "层数";
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Items.AddRange(new object[] {
+            "普通",
+            "恐怖",
+            "噩梦"});
+            this.comboBox3.Location = new System.Drawing.Point(39, 51);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(121, 20);
+            this.comboBox3.TabIndex = 6;
+            this.comboBox3.TabStop = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(8, 55);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(29, 12);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "难度";
+            // 
             // SpartanWarsTool
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1146,6 +1250,9 @@
             this.pnlTroops.PerformLayout();
             this.pnlSelfInfo.ResumeLayout(false);
             this.pnlSelfInfo.PerformLayout();
+            this.tabPage_Info.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1244,6 +1351,14 @@
         private System.Windows.Forms.TextBox txtBoxDLose;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label lblMisterySet;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }
 

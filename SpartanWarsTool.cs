@@ -770,8 +770,6 @@ namespace SpartanWarsTool
                     break;
                 case "斧骑": unitSelfPower = unitTotalPowerRideAx;
                     break;
-                default:
-                    break;
             }
 
 
