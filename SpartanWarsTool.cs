@@ -19,17 +19,20 @@ namespace SpartanWarsTool
 
         private void Init()
         {
-            cbBoxDif.SelectedIndex = 0;
-            cbBoxLayer.SelectedIndex = -1;
-            cbBoxLayer.Text = "选择层";
-            InitEvent();
-            InitControls();
+            //迷雾计算器PAGE初始化
+            InitMisteryCalPageEvent();
+            InitMisteryCalPageControls();
+
+            //配置管理PAGE初始化
+            InitSetPageEvent();
+            InitSetPageControls();
         }
 
+        #region 迷雾计算器PAGE内容
         /// <summary>
-        /// 初始化事件
+        /// 迷雾计算器PAGE初始化事件
         /// </summary>
-        private void InitEvent()
+        private void InitMisteryCalPageEvent()
         {
             txtBox_sword.GotFocus += txtBox_GotFocus;
             txtBox_spear.GotFocus += txtBox_GotFocus;
@@ -94,7 +97,26 @@ namespace SpartanWarsTool
         /// <summary>
         /// 初始化控件
         /// </summary>
-        private void InitControls()
+        private void InitMisteryCalPageControls()
+        {
+            cbBoxDif.SelectedIndex = 0;
+            InitMisteryLayer();
+            InitMisterySoldierAndPower();
+        }
+
+        /// <summary>
+        /// 初始化迷雾层选择
+        /// </summary>
+        private void InitMisteryLayer()
+        {
+            cbBoxLayer.SelectedIndex = -1;
+            cbBoxLayer.Text = "选择层";
+        }
+
+        /// <summary>
+        /// 初始化兵种选择和迷雾战力
+        /// </summary>
+        private void InitMisterySoldierAndPower()
         {
             InitCalPower();
             cbBoxSoldier1.Items.Clear();
@@ -121,32 +143,6 @@ namespace SpartanWarsTool
             txtBoxPower7.Text = "0";
         }
 
-        /// <summary>
-        /// 文本框获取焦点时全选其中的内容
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void txtBox_GotFocus(object sender, EventArgs e)
-        {
-            TextBox txtBox = (TextBox)sender;
-            txtBox.Tag = true;
-            txtBox.SelectAll();
-        }
-
-        /// <summary>
-        /// 鼠标抬起事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void txtBox_MouseUp(object sender, MouseEventArgs e)
-        {
-            TextBox txtBox = (TextBox)sender;
-            if (e.Button == MouseButtons.Left && (bool)txtBox.Tag)
-            {
-                txtBox.SelectAll();
-            }
-            txtBox.Tag = false;
-        }
 
         /// <summary>
         /// 初始化无损值
@@ -249,32 +245,144 @@ namespace SpartanWarsTool
             SortSoldier();
         }
 
+
         /// <summary>
-        /// 满意度和士气值转化
+        /// 计算按钮事件
         /// </summary>
-        /// <param name="origin"></param>
-        /// <returns></returns>
-        private double SatisAndMorConvert(double origin)
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnSubmit_Click(object sender, EventArgs e)
         {
-            double result = 0;
-            if (origin >= 4500 && origin <= 5000)
-            {
-                result = 0;
-            }
-            else if (origin >= 5001 && origin <= 6000)
-            {
-                result = 0.01;
-            }
-            else if (origin >= 6001 && origin <= 8000)
-            {
-                result = 0.03;
-            }
-            else if (origin >= 8001)
-            {
-                result = 0.05;
-            }
-            return result;
+            CalculatePower();
         }
+
+        /// <summary>
+        /// 计算某层所需各种兵的最大量
+        /// </summary>
+        private void CalculateAllPower()
+        {
+            lblDCount.Text = "单兵种最大量";
+            //初始化兵力数量
+            //迷洞兵力数量
+            int cSwordInfantry = 0;
+            int cSpearInfantry = 0;
+            int cAxInfantry = 0;
+            int cBow = 0;
+            int cSwordRide = 0;
+            int cSpearRide = 0;
+            int cAxRide = 0;
+
+            //需要最大数量
+            int cNeedSwordInfantry = 0;
+            int cNeedSpearInfantry = 0;
+            int cNeedAxInfantry = 0;
+            int cNeedBow = 0;
+            int cNeedSwordRide = 0;
+            int cNeedSpearRide = 0;
+            int cNeedAxRide = 0;
+
+            //查询选择层的各兵种数量
+            var entity = new DB_mysteryData { Difficulty = Convert.ToString(cbBoxDif.SelectedIndex + 1), Level = Convert.ToString(cbBoxLayer.SelectedIndex + 1) };
+            var ds = entity.Select(entity);
+            if (ds.Tables.Count > 0)
+            {
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                    {
+                        var soldierType = ds.Tables[0].Rows[i]["soldier_type"].ToString();
+                        switch (soldierType)
+                        {
+                            case "剑步":
+                                cSwordInfantry = Convert.ToInt32(ds.Tables[0].Rows[i]["soldier_count"]);
+                                break;
+                            case "矛步":
+                                cSpearInfantry = Convert.ToInt32(ds.Tables[0].Rows[i]["soldier_count"]);
+                                break;
+                            case "斧步":
+                                cAxInfantry = Convert.ToInt32(ds.Tables[0].Rows[i]["soldier_count"]);
+                                break;
+                            case "弓":
+                                cBow = Convert.ToInt32(ds.Tables[0].Rows[i]["soldier_count"]);
+                                break;
+                            case "剑骑":
+                                cSwordRide = Convert.ToInt32(ds.Tables[0].Rows[i]["soldier_count"]);
+                                break;
+                            case "矛骑":
+                                cSpearRide = Convert.ToInt32(ds.Tables[0].Rows[i]["soldier_count"]);
+                                break;
+                            case "斧骑":
+                                cAxRide = Convert.ToInt32(ds.Tables[0].Rows[i]["soldier_count"]);
+                                break;
+                        }
+                    }
+                }
+            }
+
+            //己方数据
+            //满意度和士气值在4500-9000之间分为3个档次，4500-5000为一档，5001-6000为一档，6001-8000为一档，8001-9000为一档，加成分别为0.00,0.01,0.03,0.05
+            double satisfiction = double.Parse(txtBox_satisfy.Text);
+            double morale = double.Parse(txtBox_morale.Text);
+
+            //满意度加成
+            satisfiction = SatisAndMorConvert(satisfiction);
+
+            //士气值加成
+            morale = SatisAndMorConvert(morale);
+
+            double satisAndMorale = satisfiction + morale;
+
+
+            //科技神满意度加成(其它一级1%，弓一级2%)
+            double tecSword = double.Parse(txtBox_sword.Text) / 100;
+            double tecSpear = double.Parse(txtBox_spear.Text) / 100;
+            double tecAx = double.Parse(txtBox_ax.Text) / 100;
+            double tecInfantry = double.Parse(txtBox_infantry.Text) / 100;
+            double tecBow = double.Parse(txtBox_bow.Text) * 2 / 100;
+            double tecRide = double.Parse(txtBox_ride.Text) / 100;
+            double godBow = double.Parse(txtBox_godadd_bow.Text);
+            double godInfantry = double.Parse(txtBox_godadd_infantry.Text);
+            double godRide = double.Parse(txtBox_godadd_ride.Text);
+
+            //单位战力
+            double unitTotalPowerInfantrySword = SpartanConst.UnitPower.INFANTRY_SWORD * (1 + satisAndMorale + tecSword + tecInfantry) + godInfantry; ;
+            double unitTotalPowerInfantrySpear = SpartanConst.UnitPower.INFANTRY_SPEAR * (1 + satisAndMorale + tecSpear + tecInfantry) + godInfantry; ;
+            double unitTotalPowerInfantryAx = SpartanConst.UnitPower.INFANTRY_AX * (1 + satisAndMorale + tecAx + tecInfantry) + godInfantry;
+            double unitTotalPowerBow = SpartanConst.UnitPower.BOW * (1 + satisAndMorale + tecBow) + godBow;
+            double unitTotalPowerRideSword = SpartanConst.UnitPower.RIDE_SWORD * (1 + satisAndMorale + tecSword + tecRide) + godRide;
+            double unitTotalPowerRideSpear = SpartanConst.UnitPower.RIDE_SPEAR * (1 + satisAndMorale + tecSpear + tecRide) + godRide;
+            double unitTotalPowerRideAx = SpartanConst.UnitPower.RIDE_AX * (1 + satisAndMorale + tecAx + tecRide) + godRide;
+
+            //计算单兵种最大量的话只需要枚举最苛刻的条件即可
+            //需要最大量剑步，条件：剑步VS矛骑
+            cNeedSwordInfantry = Convert.ToInt32(Math.Round(SpartanConst.UnitPower.RIDE_SPEAR * cSpearRide * 2 * 1.2 / (0.3 * unitTotalPowerInfantrySword)));
+            //需要最大量矛步，条件：矛步VS斧骑
+            cNeedSpearInfantry = Convert.ToInt32(Math.Round(SpartanConst.UnitPower.RIDE_AX * cAxRide * 2 * 1.2 / (0.3 * unitTotalPowerInfantrySpear)));
+            //需要最大量斧步，条件：斧步VS剑骑
+            cNeedAxInfantry = Convert.ToInt32(Math.Round(SpartanConst.UnitPower.RIDE_SWORD * cSwordRide * 2 * 1.2 / (0.3 * unitTotalPowerInfantryAx)));
+            //需要最大量弓，条件：弓VS三步中总战力最高的步
+            int swordPower = SpartanConst.UnitPower.INFANTRY_SWORD * cSwordInfantry;
+            int spearPower = SpartanConst.UnitPower.INFANTRY_SPEAR * cSpearInfantry;
+            int axPower = SpartanConst.UnitPower.INFANTRY_AX * cAxInfantry;
+            int infantryPower = CompareThreeInfantryPower(swordPower, spearPower, axPower);
+            cNeedBow = Convert.ToInt32(Math.Round(infantryPower / (0.3 * unitTotalPowerBow)));
+            //需要最大量剑骑，条件：剑骑VS斧骑
+            cNeedSwordRide = Convert.ToInt32(Math.Round(SpartanConst.UnitPower.RIDE_AX * cAxRide * 2 / (0.2 * unitTotalPowerRideSword)));
+            //需要最大量矛骑，条件：矛骑VS剑骑
+            cNeedSpearRide = Convert.ToInt32(Math.Round(SpartanConst.UnitPower.RIDE_SWORD * cSwordRide * 2 / (0.2 * unitTotalPowerRideSpear)));
+            //需要最大量斧骑，条件：斧骑VS矛骑
+            cNeedAxRide = Convert.ToInt32(Math.Round(SpartanConst.UnitPower.RIDE_SPEAR * cSpearRide * 2 / (0.2 * unitTotalPowerRideAx)));
+
+            //将需要的最大数据填入免暴输出框
+            txtBoxDPower1.Text = cNeedSwordInfantry.ToString("n0");
+            txtBoxDPower2.Text = cNeedSpearInfantry.ToString("n0");
+            txtBoxDPower3.Text = cNeedAxInfantry.ToString("n0");
+            txtBoxDPower4.Text = cNeedBow.ToString("n0");
+            txtBoxDPower5.Text = cNeedSwordRide.ToString("n0");
+            txtBoxDPower6.Text = cNeedSpearRide.ToString("n0");
+            txtBoxDPower7.Text = cNeedAxRide.ToString("n0");
+        }
+        
 
         /// <summary>
         /// 计算无损核心算法(排斥法)
@@ -777,133 +885,6 @@ namespace SpartanWarsTool
 
 
         /// <summary>
-        /// 计算某层所需各种兵的最大量
-        /// </summary>
-        private void CalculateAllPower()
-        {
-            lblDCount.Text = "单兵种最大量";
-            //初始化兵力数量
-            //迷洞兵力数量
-            int cSwordInfantry = 0;
-            int cSpearInfantry = 0;
-            int cAxInfantry = 0;
-            int cBow = 0;
-            int cSwordRide = 0;
-            int cSpearRide = 0;
-            int cAxRide = 0;
-
-            //需要最大数量
-            int cNeedSwordInfantry = 0;
-            int cNeedSpearInfantry = 0;
-            int cNeedAxInfantry = 0;
-            int cNeedBow = 0;
-            int cNeedSwordRide = 0;
-            int cNeedSpearRide = 0;
-            int cNeedAxRide = 0;
-
-            //查询选择层的各兵种数量
-            var entity = new DB_mysteryData { Difficulty = Convert.ToString(cbBoxDif.SelectedIndex + 1), Level = Convert.ToString(cbBoxLayer.SelectedIndex + 1) };
-            var ds = entity.Select(entity);
-            if (ds.Tables.Count > 0)
-            {
-                if (ds.Tables[0].Rows.Count > 0)
-                {
-                    for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
-                    {
-                        var soldierType = ds.Tables[0].Rows[i]["soldier_type"].ToString();
-                        switch (soldierType)
-                        {
-                            case "剑步":
-                                cSwordInfantry = Convert.ToInt32(ds.Tables[0].Rows[i]["soldier_count"]);
-                                break;
-                            case "矛步":
-                                cSpearInfantry = Convert.ToInt32(ds.Tables[0].Rows[i]["soldier_count"]);
-                                break;
-                            case "斧步":
-                                cAxInfantry = Convert.ToInt32(ds.Tables[0].Rows[i]["soldier_count"]);
-                                break;
-                            case "弓":
-                                cBow = Convert.ToInt32(ds.Tables[0].Rows[i]["soldier_count"]);
-                                break;
-                            case "剑骑":
-                                cSwordRide = Convert.ToInt32(ds.Tables[0].Rows[i]["soldier_count"]);
-                                break;
-                            case "矛骑":
-                                cSpearRide = Convert.ToInt32(ds.Tables[0].Rows[i]["soldier_count"]);
-                                break;
-                            case "斧骑":
-                                cAxRide = Convert.ToInt32(ds.Tables[0].Rows[i]["soldier_count"]);
-                                break;
-                        }
-                    }
-                }
-            }
-
-            //己方数据
-            //满意度和士气值在4500-9000之间分为3个档次，4500-5000为一档，5001-6000为一档，6001-8000为一档，8001-9000为一档，加成分别为0.00,0.01,0.03,0.05
-            double satisfiction = double.Parse(txtBox_satisfy.Text);
-            double morale = double.Parse(txtBox_morale.Text);
-
-            //满意度加成
-            satisfiction = SatisAndMorConvert(satisfiction);
-
-            //士气值加成
-            morale = SatisAndMorConvert(morale);
-
-            double satisAndMorale = satisfiction + morale;
-
-
-            //科技神满意度加成(其它一级1%，弓一级2%)
-            double tecSword = double.Parse(txtBox_sword.Text) / 100;
-            double tecSpear = double.Parse(txtBox_spear.Text) / 100;
-            double tecAx = double.Parse(txtBox_ax.Text) / 100;
-            double tecInfantry = double.Parse(txtBox_infantry.Text) / 100;
-            double tecBow = double.Parse(txtBox_bow.Text) * 2 / 100;
-            double tecRide = double.Parse(txtBox_ride.Text) / 100;
-            double godBow = double.Parse(txtBox_godadd_bow.Text);
-            double godInfantry = double.Parse(txtBox_godadd_infantry.Text);
-            double godRide = double.Parse(txtBox_godadd_ride.Text);
-
-            //单位战力
-            double unitTotalPowerInfantrySword = SpartanConst.UnitPower.INFANTRY_SWORD * (1 + satisAndMorale + tecSword + tecInfantry) + godInfantry; ;
-            double unitTotalPowerInfantrySpear = SpartanConst.UnitPower.INFANTRY_SPEAR * (1 + satisAndMorale + tecSpear + tecInfantry) + godInfantry; ;
-            double unitTotalPowerInfantryAx = SpartanConst.UnitPower.INFANTRY_AX * (1 + satisAndMorale + tecAx + tecInfantry) + godInfantry;
-            double unitTotalPowerBow = SpartanConst.UnitPower.BOW * (1 + satisAndMorale + tecBow) + godBow;
-            double unitTotalPowerRideSword = SpartanConst.UnitPower.RIDE_SWORD * (1 + satisAndMorale + tecSword + tecRide) + godRide;
-            double unitTotalPowerRideSpear = SpartanConst.UnitPower.RIDE_SPEAR * (1 + satisAndMorale + tecSpear + tecRide) + godRide;
-            double unitTotalPowerRideAx = SpartanConst.UnitPower.RIDE_AX * (1 + satisAndMorale + tecAx + tecRide) + godRide;
-
-            //计算单兵种最大量的话只需要枚举最苛刻的条件即可
-            //需要最大量剑步，条件：剑步VS矛骑
-            cNeedSwordInfantry = Convert.ToInt32(Math.Round(SpartanConst.UnitPower.RIDE_SPEAR * cSpearRide * 2 * 1.2 / (0.3 * unitTotalPowerInfantrySword)));
-            //需要最大量矛步，条件：矛步VS斧骑
-            cNeedSpearInfantry = Convert.ToInt32(Math.Round(SpartanConst.UnitPower.RIDE_AX * cAxRide * 2 * 1.2 / (0.3 * unitTotalPowerInfantrySpear)));
-            //需要最大量斧步，条件：斧步VS剑骑
-            cNeedAxInfantry = Convert.ToInt32(Math.Round(SpartanConst.UnitPower.RIDE_SWORD * cSwordRide * 2 * 1.2 / (0.3 * unitTotalPowerInfantryAx)));
-            //需要最大量弓，条件：弓VS三步中总战力最高的步
-            int swordPower = SpartanConst.UnitPower.INFANTRY_SWORD * cSwordInfantry;
-            int spearPower = SpartanConst.UnitPower.INFANTRY_SPEAR * cSpearInfantry;
-            int axPower = SpartanConst.UnitPower.INFANTRY_AX * cAxInfantry;
-            int infantryPower = CompareThreeInfantryPower(swordPower, spearPower, axPower);
-            cNeedBow = Convert.ToInt32(Math.Round(infantryPower / (0.3 * unitTotalPowerBow)));
-            //需要最大量剑骑，条件：剑骑VS斧骑
-            cNeedSwordRide = Convert.ToInt32(Math.Round(SpartanConst.UnitPower.RIDE_AX * cAxRide * 2 / (0.2 * unitTotalPowerRideSword)));
-            //需要最大量矛骑，条件：矛骑VS剑骑
-            cNeedSpearRide = Convert.ToInt32(Math.Round(SpartanConst.UnitPower.RIDE_SWORD * cSwordRide * 2 / (0.2 * unitTotalPowerRideSpear)));
-            //需要最大量斧骑，条件：斧骑VS矛骑
-            cNeedAxRide = Convert.ToInt32(Math.Round(SpartanConst.UnitPower.RIDE_SPEAR * cSpearRide * 2 / (0.2 * unitTotalPowerRideAx)));
-
-            //将需要的最大数据填入免暴输出框
-            txtBoxDPower1.Text = cNeedSwordInfantry.ToString("n0");
-            txtBoxDPower2.Text = cNeedSpearInfantry.ToString("n0");
-            txtBoxDPower3.Text = cNeedAxInfantry.ToString("n0");
-            txtBoxDPower4.Text = cNeedBow.ToString("n0");
-            txtBoxDPower5.Text = cNeedSwordRide.ToString("n0");
-            txtBoxDPower6.Text = cNeedSpearRide.ToString("n0");
-            txtBoxDPower7.Text = cNeedAxRide.ToString("n0");
-        }
-
-        /// <summary>
         /// 选择难度改变事件
         /// </summary>
         /// <param name="sender"></param>
@@ -915,9 +896,8 @@ namespace SpartanWarsTool
                 MessageBox.Show("游戏系统未开发完毕！切换至普通难度");
                 cbBoxDif.SelectedIndex = 0;
             }
-            cbBoxLayer.SelectedIndex = -1;
-            cbBoxLayer.Text = "选择层";
-            InitControls();
+            InitMisteryLayer();
+            InitMisterySoldierAndPower();
         }
 
         /// <summary>
@@ -927,7 +907,7 @@ namespace SpartanWarsTool
         /// <param name="e"></param>
         private void cbBoxLayer_SelectedIndexChanged(object sender, EventArgs e)
         {
-            InitControls();
+            InitMisterySoldierAndPower();
             //列出单兵种所需最大量
             CalculateAllPower();
 
@@ -977,12 +957,40 @@ namespace SpartanWarsTool
             //噩梦难度（未知）
         }
 
-
+        /// <summary>
+        /// 比较三种步兵谁的总战力最高
+        /// </summary>
+        /// <param name="swordPower"></param>
+        /// <param name="spearPower"></param>
+        /// <param name="axPower"></param>
+        /// <returns></returns>
         private int CompareThreeInfantryPower(int swordPower, int spearPower, int axPower)
         {
             int temp = (swordPower >= spearPower) ? swordPower : spearPower;
             temp = (temp >= axPower) ? temp : axPower;
             return temp;
+        }
+
+        /// <summary>
+        /// 改变兵种后清空原来兵种数量，加载新兵种数量
+        /// </summary>
+        /// <param name="preValue"></param>
+        private void ChangeTxtBoxes(string preValue)
+        {
+            if (String.IsNullOrEmpty(preValue) || cbBoxSoldier1.Tag.Equals(cbBoxSoldier2.Tag) ||
+                cbBoxSoldier1.Tag.Equals(cbBoxSoldier3.Tag) || cbBoxSoldier2.Tag.Equals(cbBoxSoldier3.Tag)) return;
+            switch (preValue)
+            {
+                case "剑步": txtBoxPower1.Text = "0"; break;
+                case "矛步": txtBoxPower2.Text = "0"; break;
+                case "斧步": txtBoxPower3.Text = "0"; break;
+                case "弓": txtBoxPower4.Text = "0"; break;
+                case "剑骑": txtBoxPower5.Text = "0"; break;
+                case "矛骑": txtBoxPower6.Text = "0"; break;
+                case "斧骑": txtBoxPower7.Text = "0"; break;
+                default:
+                    break;
+            }
         }
 
         /// <summary>
@@ -1063,7 +1071,7 @@ namespace SpartanWarsTool
 
             CalculatePower();
         }
-
+        
         /// <summary>
         /// 出兵排序
         /// </summary>
@@ -1140,27 +1148,268 @@ namespace SpartanWarsTool
 
         }
 
+
+        #endregion
+
+        #region 配置管理
         /// <summary>
-        /// 改变兵种后清空原来兵种数量，加载新兵种数量
+        /// 初始化配置管理页控件
         /// </summary>
-        /// <param name="preValue"></param>
-        private void ChangeTxtBoxes(string preValue)
+        private void InitSetPageControls()
         {
-            if (String.IsNullOrEmpty(preValue) || cbBoxSoldier1.Tag.Equals(cbBoxSoldier2.Tag) ||
-                cbBoxSoldier1.Tag.Equals(cbBoxSoldier3.Tag) || cbBoxSoldier2.Tag.Equals(cbBoxSoldier3.Tag)) return;
-            switch (preValue)
-            {
-                case "剑步": txtBoxPower1.Text = "0"; break;
-                case "矛步": txtBoxPower2.Text = "0"; break;
-                case "斧步": txtBoxPower3.Text = "0"; break;
-                case "弓": txtBoxPower4.Text = "0"; break;
-                case "剑骑": txtBoxPower5.Text = "0"; break;
-                case "矛骑": txtBoxPower6.Text = "0"; break;
-                case "斧骑": txtBoxPower7.Text = "0"; break;
-                default:
-                    break;
-            }
+            cbBoxDifSet.SelectedIndex = 0;
+            InitSetLayerAndReadonly();
+
         }
+
+        /// <summary>
+        /// 初始化配置页选择层
+        /// </summary>
+        private void InitSetLayerAndReadonly()
+        {
+            cbBoxLayerSet.SelectedIndex = -1;
+            cbBoxLayerSet.Text = "选择层";
+            txtMisSol1.ReadOnly = true;
+            txtMisSol2.ReadOnly = true;
+            txtMisSol3.ReadOnly = true;
+            txtMisSol4.ReadOnly = true;
+            txtMisSol5.ReadOnly = true;
+            txtMisSol6.ReadOnly = true;
+            txtMisSol7.ReadOnly = true;
+            txtMisSol1.Text = "0";
+            txtMisSol2.Text = "0";
+            txtMisSol3.Text = "0";
+            txtMisSol4.Text = "0";
+            txtMisSol5.Text = "0";
+            txtMisSol6.Text = "0";
+            txtMisSol7.Text = "0";
+            btnMisSetSave.Enabled = false;
+        }
+
+        /// <summary>
+        /// 初始化配置管理页事件
+        /// </summary>
+        private void InitSetPageEvent()
+        {
+            txtMisSol1.GotFocus += txtBox_GotFocus;
+            txtMisSol2.GotFocus += txtBox_GotFocus;
+            txtMisSol3.GotFocus += txtBox_GotFocus;
+            txtMisSol4.GotFocus += txtBox_GotFocus;
+            txtMisSol5.GotFocus += txtBox_GotFocus;
+            txtMisSol6.GotFocus += txtBox_GotFocus;
+            txtMisSol7.GotFocus += txtBox_GotFocus;
+
+            txtMisSol1.Tag = false;
+            txtMisSol2.Tag = false;
+            txtMisSol3.Tag = false;
+            txtMisSol4.Tag = false;
+            txtMisSol5.Tag = false;
+            txtMisSol6.Tag = false;
+            txtMisSol7.Tag = false;
+
+            txtMisSol1.MouseUp += txtBox_MouseUp;
+            txtMisSol2.MouseUp += txtBox_MouseUp;
+            txtMisSol3.MouseUp += txtBox_MouseUp;
+            txtMisSol4.MouseUp += txtBox_MouseUp;
+            txtMisSol5.MouseUp += txtBox_MouseUp;
+            txtMisSol6.MouseUp += txtBox_MouseUp;
+            txtMisSol7.MouseUp += txtBox_MouseUp;
+        }
+
+        /// <summary>
+        /// 配置管理页 难度选择改变事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cbBoxDifSet_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbBoxDifSet.SelectedIndex == 2)
+            {
+                MessageBox.Show("游戏系统未开发完毕！切换至普通难度");
+                cbBoxDifSet.SelectedIndex = 0;
+            }
+            InitSetLayerAndReadonly();
+        }
+
+        /// <summary>
+        /// 配置管理页 层选择改变事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cbBoxLayerSet_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtMisSol1.ReadOnly = false;
+            txtMisSol2.ReadOnly = false;
+            txtMisSol3.ReadOnly = false;
+            txtMisSol4.ReadOnly = false;
+            txtMisSol5.ReadOnly = false;
+            txtMisSol6.ReadOnly = false;
+            txtMisSol7.ReadOnly = false;
+            btnMisSetSave.Enabled = true;
+
+            DB_mysteryData entity = new DB_mysteryData
+                                        {
+                                            Difficulty = Convert.ToString(cbBoxDifSet.SelectedIndex + 1),
+                                            Level = Convert.ToString(cbBoxLayerSet.SelectedIndex + 1)
+                                        };
+            DataSet ds = entity.Select(entity);
+
+            //普通难度（1，2，3为单纵队并且只有步兵，4，5，6，7为双纵队并且没有弓，6，7，8，9，10为三纵队并且三兵种都齐全）
+            if (cbBoxDifSet.SelectedIndex == 0)
+            {
+                if (cbBoxLayerSet.SelectedIndex >= 0 && cbBoxLayerSet.SelectedIndex <= 2)
+                {
+                    txtMisSol4.ReadOnly = true;
+                    txtMisSol5.ReadOnly = true;
+                    txtMisSol6.ReadOnly = true;
+                    txtMisSol7.ReadOnly = true;
+                    if (ds.Tables.Count > 0)
+                    {
+                        if (ds.Tables[0].Rows.Count > 0)
+                        {
+                            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                            {
+                                string soldierType = ds.Tables[0].Rows[i]["soldier_type"].ToString();
+                                string soldierCount = ds.Tables[0].Rows[i]["soldier_count"].ToString();
+                                switch (soldierType)
+                                {
+                                    case "剑步":
+                                        txtMisSol1.Text = soldierCount;
+                                        break;
+                                    case "矛步":
+                                        txtMisSol2.Text = soldierCount;
+                                        break;
+                                    case "斧步":
+                                        txtMisSol3.Text = soldierCount;
+                                        break;
+                                }
+                            }
+                        }
+                    }
+                }
+                else if (cbBoxLayerSet.SelectedIndex >= 3 && cbBoxLayerSet.SelectedIndex <= 6)
+                {
+                    txtMisSol4.ReadOnly = true;
+                    if (ds.Tables.Count > 0)
+                    {
+                        if (ds.Tables[0].Rows.Count > 0)
+                        {
+                            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                            {
+                                string soldierType = ds.Tables[0].Rows[i]["soldier_type"].ToString();
+                                string soldierCount = ds.Tables[0].Rows[i]["soldier_count"].ToString();
+                                switch (soldierType)
+                                {
+                                    case "剑步":
+                                        txtMisSol1.Text = soldierCount;
+                                        break;
+                                    case "矛步":
+                                        txtMisSol2.Text = soldierCount;
+                                        break;
+                                    case "斧步":
+                                        txtMisSol3.Text = soldierCount;
+                                        break;
+                                    case "剑骑":
+                                        txtMisSol5.Text = soldierCount;
+                                        break;
+                                    case "矛骑":
+                                        txtMisSol6.Text = soldierCount;
+                                        break;
+                                    case "斧骑":
+                                        txtMisSol7.Text = soldierCount;
+                                        break;
+                                }
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    if (ds.Tables.Count > 0)
+                    {
+                        if (ds.Tables[0].Rows.Count > 0)
+                        {
+                            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                            {
+                                string soldierType = ds.Tables[0].Rows[i]["soldier_type"].ToString();
+                                string soldierCount = ds.Tables[0].Rows[i]["soldier_count"].ToString();
+                                switch (soldierType)
+                                {
+                                    case "剑步":
+                                        txtMisSol1.Text = soldierCount;
+                                        break;
+                                    case "矛步":
+                                        txtMisSol2.Text = soldierCount;
+                                        break;
+                                    case "斧步":
+                                        txtMisSol3.Text = soldierCount;
+                                        break;
+                                    case "弓":
+                                        txtMisSol4.Text = soldierCount;
+                                        break;
+                                    case "剑骑":
+                                        txtMisSol5.Text = soldierCount;
+                                        break;
+                                    case "矛骑":
+                                        txtMisSol6.Text = soldierCount;
+                                        break;
+                                    case "斧骑":
+                                        txtMisSol7.Text = soldierCount;
+                                        break;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            //恐怖难度（均为三纵队，可能重复）
+            if (cbBoxDifSet.SelectedIndex == 1)
+            {
+                if (ds.Tables.Count > 0)
+                {
+                    if (ds.Tables[0].Rows.Count > 0)
+                    {
+                        for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                        {
+                            string soldierType = ds.Tables[0].Rows[i]["soldier_type"].ToString();
+                            string soldierCount = ds.Tables[0].Rows[i]["soldier_count"].ToString();
+                            switch (soldierType)
+                            {
+                                case "剑步":
+                                    txtMisSol1.Text = soldierCount;
+                                    break;
+                                case "矛步":
+                                    txtMisSol2.Text = soldierCount;
+                                    break;
+                                case "斧步":
+                                    txtMisSol3.Text = soldierCount;
+                                    break;
+                                case "弓":
+                                    txtMisSol4.Text = soldierCount;
+                                    break;
+                                case "剑骑":
+                                    txtMisSol5.Text = soldierCount;
+                                    break;
+                                case "矛骑":
+                                    txtMisSol6.Text = soldierCount;
+                                    break;
+                                case "斧骑":
+                                    txtMisSol7.Text = soldierCount;
+                                    break;
+                            }
+                        }
+                    }
+                }
+            }
+
+            //噩梦难度（未知）
+        }
+
+
+        #endregion
+
+
+        #region 通用方法
 
         /// <summary>
         /// 输入框检查
@@ -1307,13 +1556,62 @@ namespace SpartanWarsTool
         }
 
         /// <summary>
-        /// 计算无损
+        /// 文本框获取焦点时全选其中的内容
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnSubmit_Click(object sender, EventArgs e)
+        private void txtBox_GotFocus(object sender, EventArgs e)
         {
-            CalculatePower();
+            TextBox txtBox = (TextBox)sender;
+            txtBox.Tag = true;
+            txtBox.SelectAll();
         }
+
+        /// <summary>
+        /// 鼠标抬起事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtBox_MouseUp(object sender, MouseEventArgs e)
+        {
+            TextBox txtBox = (TextBox)sender;
+            if (e.Button == MouseButtons.Left && (bool)txtBox.Tag)
+            {
+                txtBox.SelectAll();
+            }
+            txtBox.Tag = false;
+        }
+
+        /// <summary>
+        /// 满意度和士气值转化
+        /// </summary>
+        /// <param name="origin"></param>
+        /// <returns></returns>
+        private double SatisAndMorConvert(double origin)
+        {
+            double result = 0;
+            if (origin >= 4500 && origin <= 5000)
+            {
+                result = 0;
+            }
+            else if (origin >= 5001 && origin <= 6000)
+            {
+                result = 0.01;
+            }
+            else if (origin >= 6001 && origin <= 8000)
+            {
+                result = 0.03;
+            }
+            else if (origin >= 8001)
+            {
+                result = 0.05;
+            }
+            return result;
+        }
+
+        #endregion
+
+        
+
     }
 }
